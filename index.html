@@ -58,7 +58,7 @@ th{color:var(--ink);font-weight:700;background:#F5EEDF}
 .divider h1{color:#fff}
 .divider p{font-size:28px}
 /* cover */
-.cover{justify-content:center;gap:26px;background:radial-gradient(circle at 85% 20%,#FCE3D2 0,transparent 40%),var(--paper)}
+.cover{justify-content:center;gap:26px;padding-right:420px;background:radial-gradient(circle at 85% 20%,#FCE3D2 0,transparent 40%),var(--paper)}
 .cover .sub{font-size:30px;color:var(--body);line-height:1.5}
 .cover .who{font-size:24px;color:var(--ink);font-weight:700}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
@@ -95,6 +95,15 @@ svg text{font-family:inherit}
 /* flip list */
 .flips{display:flex;flex-wrap:wrap;gap:10px}
 .flips span{font-size:26px;font-weight:700;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 14px;color:var(--pen)}
+/* QR */
+.qra{display:block;width:100%;height:100%}
+.qra svg{display:block;width:100%;height:100%}
+.qrcard{width:290px;background:#fff;border:3px solid var(--amber);border-radius:22px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(18,52,59,.12)}
+.qrcard .qra{height:250px}
+.qrcard p{font-size:21px;margin-top:8px;line-height:1.4}
+.fbrow{display:flex;align-items:center;gap:18px;margin-top:12px}
+.qrsm{width:128px;height:128px;flex:none;background:#fff;border-radius:12px;padding:6px}
+.fbrow p{font-size:21px;line-height:1.45}
 /* rule diagrams */
 .dcols{grid-template-columns:.8fr 1.2fr}
 .dbox{padding:12px;align-items:center;justify-content:center;min-height:0}
@@ -103,6 +112,10 @@ svg text{font-family:inherit}
 .dia .dn{font-size:36px;fill:var(--body)}
 .dia .dh{font-size:40px;font-weight:900;fill:var(--orange)}
 .dia .dnum{font-size:84px;font-weight:700;fill:var(--pen);text-anchor:middle}
+.dia .pr{font-size:44px;font-weight:700}
+.dia .ps{font-size:84px;text-anchor:middle}
+.dia .ps2{font-size:60px;text-anchor:middle}
+.dia .dbig{font-size:72px;font-weight:900;fill:var(--orange)}
 .dia .dq{font-size:72px;font-weight:700;fill:#A99F8B;text-anchor:middle}
 /* controls */
 #bar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px;align-items:center;background:rgba(18,52,59,.85);border-radius:999px;padding:6px 10px;opacity:.25;transition:opacity .2s;z-index:5}
@@ -124,6 +137,8 @@ svg text{font-family:inherit}
   <p class="sub">撲克牌破冰 5 款 → 自己畫 108 張名片卡 → 拉密形色棋 → 數字撞鐘、誰是牛頭王</p>
   <div class="chips"><span>撲克牌</span><span>空白名片</span><span>原子筆</span></div>
   <p class="who">愛迪樂｜鍾孟修 職能治療師</p>
+  <div class="qrcard" style="position:absolute;right:72px;top:50%;transform:translateY(-50%)"><a class="qra" href="https://mattsue1003.github.io/card-games-108/" target="_blank" rel="noopener">
+<svg class="qr" role="img" aria-label="簡報網址 QR Code" version="1.1" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM13,2H14V3H13zM15,2H16V3H15zM16,2H17V3H16zM17,2H18V3H17zM20,2H21V3H20zM23,2H24V3H23zM24,2H25V3H24zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM11,3H12V4H11zM14,3H15V4H14zM15,3H16V4H15zM16,3H17V4H16zM18,3H19V4H18zM20,3H21V4H20zM21,3H22V4H21zM23,3H24V4H23zM24,3H25V4H24zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM12,4H13V5H12zM14,4H15V5H14zM16,4H17V5H16zM19,4H20V5H19zM20,4H21V5H20zM21,4H22V5H21zM22,4H23V5H22zM23,4H24V5H23zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM10,5H11V6H10zM12,5H13V6H12zM13,5H14V6H13zM18,5H19V6H18zM19,5H20V6H19zM23,5H24V6H23zM24,5H25V6H24zM25,5H26V6H25zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM11,6H12V7H11zM12,6H13V7H12zM14,6H15V7H14zM18,6H19V7H18zM19,6H20V7H19zM21,6H22V7H21zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM12,7H13V8H12zM13,7H14V8H13zM17,7H18V8H17zM20,7H21V8H20zM22,7H23V8H22zM24,7H25V8H24zM26,7H27V8H26zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM10,9H11V10H10zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM16,9H17V10H16zM19,9H20V10H19zM20,9H21V10H20zM21,9H22V10H21zM22,9H23V10H22zM23,9H24V10H23zM25,9H26V10H25zM2,10H3V11H2zM6,10H7V11H6zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM13,10H14V11H13zM17,10H18V11H17zM19,10H20V11H19zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM25,10H26V11H25zM27,10H28V11H27zM28,10H29V11H28zM29,10H30V11H29zM30,10H31V11H30zM31,10H32V11H31zM34,10H35V11H34zM6,11H7V12H6zM10,11H11V12H10zM11,11H12V12H11zM13,11H14V12H13zM14,11H15V12H14zM16,11H17V12H16zM17,11H18V12H17zM18,11H19V12H18zM19,11H20V12H19zM23,11H24V12H23zM25,11H26V12H25zM27,11H28V12H27zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM2,12H3V13H2zM3,12H4V13H3zM5,12H6V13H5zM8,12H9V13H8zM9,12H10V13H9zM11,12H12V13H11zM12,12H13V13H12zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM17,12H18V13H17zM20,12H21V13H20zM25,12H26V13H25zM27,12H28V13H27zM31,12H32V13H31zM33,12H34V13H33zM2,13H3V14H2zM5,13H6V14H5zM6,13H7V14H6zM7,13H8V14H7zM9,13H10V14H9zM11,13H12V14H11zM15,13H16V14H15zM17,13H18V14H17zM18,13H19V14H18zM21,13H22V14H21zM22,13H23V14H22zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM34,13H35V14H34zM2,14H3V15H2zM5,14H6V15H5zM6,14H7V15H6zM8,14H9V15H8zM10,14H11V15H10zM11,14H12V15H11zM13,14H14V15H13zM14,14H15V15H14zM15,14H16V15H15zM17,14H18V15H17zM18,14H19V15H18zM24,14H25V15H24zM28,14H29V15H28zM30,14H31V15H30zM31,14H32V15H31zM33,14H34V15H33zM34,14H35V15H34zM2,15H3V16H2zM4,15H5V16H4zM7,15H8V16H7zM9,15H10V16H9zM15,15H16V16H15zM16,15H17V16H16zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM25,15H26V16H25zM26,15H27V16H26zM29,15H30V16H29zM31,15H32V16H31zM32,15H33V16H32zM2,16H3V17H2zM3,16H4V17H3zM7,16H8V17H7zM8,16H9V17H8zM9,16H10V17H9zM12,16H13V17H12zM13,16H14V17H13zM14,16H15V17H14zM16,16H17V17H16zM17,16H18V17H17zM19,16H20V17H19zM20,16H21V17H20zM22,16H23V17H22zM23,16H24V17H23zM25,16H26V17H25zM27,16H28V17H27zM28,16H29V17H28zM30,16H31V17H30zM31,16H32V17H31zM33,16H34V17H33zM2,17H3V18H2zM4,17H5V18H4zM5,17H6V18H5zM6,17H7V18H6zM9,17H10V18H9zM10,17H11V18H10zM13,17H14V18H13zM14,17H15V18H14zM15,17H16V18H15zM16,17H17V18H16zM17,17H18V18H17zM18,17H19V18H18zM19,17H20V18H19zM23,17H24V18H23zM25,17H26V18H25zM27,17H28V18H27zM28,17H29V18H28zM31,17H32V18H31zM2,18H3V19H2zM3,18H4V19H3zM6,18H7V19H6zM8,18H9V19H8zM10,18H11V19H10zM12,18H13V19H12zM13,18H14V19H13zM19,18H20V19H19zM21,18H22V19H21zM22,18H23V19H22zM23,18H24V19H23zM28,18H29V19H28zM30,18H31V19H30zM33,18H34V19H33zM2,19H3V20H2zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM7,19H8V20H7zM9,19H10V20H9zM12,19H13V20H12zM14,19H15V20H14zM16,19H17V20H16zM17,19H18V20H17zM18,19H19V20H18zM20,19H21V20H20zM22,19H23V20H22zM24,19H25V20H24zM25,19H26V20H25zM27,19H28V20H27zM31,19H32V20H31zM32,19H33V20H32zM3,20H4V21H3zM4,20H5V21H4zM5,20H6V21H5zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM12,20H13V21H12zM15,20H16V21H15zM17,20H18V21H17zM18,20H19V21H18zM19,20H20V21H19zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM25,20H26V21H25zM29,20H30V21H29zM31,20H32V21H31zM33,20H34V21H33zM2,21H3V22H2zM5,21H6V22H5zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM11,21H12V22H11zM12,21H13V22H12zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM16,21H17V22H16zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM25,21H26V22H25zM26,21H27V22H26zM27,21H28V22H27zM28,21H29V22H28zM29,21H30V22H29zM33,21H34V22H33zM4,22H5V23H4zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM14,22H15V23H14zM17,22H18V23H17zM20,22H21V23H20zM21,22H22V23H21zM22,22H23V23H22zM27,22H28V23H27zM28,22H29V23H28zM30,22H31V23H30zM31,22H32V23H31zM33,22H34V23H33zM34,22H35V23H34zM2,23H3V24H2zM3,23H4V24H3zM4,23H5V24H4zM5,23H6V24H5zM6,23H7V24H6zM7,23H8V24H7zM9,23H10V24H9zM10,23H11V24H10zM12,23H13V24H12zM13,23H14V24H13zM14,23H15V24H14zM15,23H16V24H15zM18,23H19V24H18zM19,23H20V24H19zM21,23H22V24H21zM24,23H25V24H24zM25,23H26V24H25zM26,23H27V24H26zM27,23H28V24H27zM29,23H30V24H29zM31,23H32V24H31zM33,23H34V24H33zM5,24H6V25H5zM6,24H7V25H6zM8,24H9V25H8zM10,24H11V25H10zM13,24H14V25H13zM14,24H15V25H14zM15,24H16V25H15zM16,24H17V25H16zM18,24H19V25H18zM19,24H20V25H19zM21,24H22V25H21zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM26,24H27V25H26zM27,24H28V25H27zM28,24H29V25H28zM30,24H31V25H30zM33,24H34V25H33zM5,25H6V26H5zM11,25H12V26H11zM12,25H13V26H12zM14,25H15V26H14zM16,25H17V26H16zM19,25H20V26H19zM21,25H22V26H21zM22,25H23V26H22zM23,25H24V26H23zM25,25H26V26H25zM27,25H28V26H27zM29,25H30V26H29zM30,25H31V26H30zM33,25H34V26H33zM2,26H3V27H2zM3,26H4V27H3zM5,26H6V27H5zM6,26H7V27H6zM8,26H9V27H8zM10,26H11V27H10zM14,26H15V27H14zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM23,26H24V27H23zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM10,27H11V28H10zM12,27H13V28H12zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM19,27H20V28H19zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM33,27H34V28H33zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM11,28H12V29H11zM12,28H13V29H12zM14,28H15V29H14zM15,28H16V29H15zM16,28H17V29H16zM17,28H18V29H17zM18,28H19V29H18zM20,28H21V29H20zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM31,28H32V29H31zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM12,29H13V30H12zM13,29H14V30H13zM14,29H15V30H14zM18,29H19V30H18zM24,29H25V30H24zM26,29H27V30H26zM30,29H31V30H30zM33,29H34V30H33zM34,29H35V30H34zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM11,30H12V31H11zM13,30H14V31H13zM15,30H16V31H15zM16,30H17V31H16zM18,30H19V31H18zM21,30H22V31H21zM24,30H25V31H24zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM31,30H32V31H31zM33,30H34V31H33zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM11,31H12V32H11zM12,31H13V32H12zM13,31H14V32H13zM14,31H15V32H14zM15,31H16V32H15zM16,31H17V32H16zM20,31H21V32H20zM21,31H22V32H21zM22,31H23V32H22zM25,31H26V32H25zM26,31H27V32H26zM28,31H29V32H28zM29,31H30V32H29zM30,31H31V32H30zM31,31H32V32H31zM32,31H33V32H32zM33,31H34V32H33zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM13,32H14V33H13zM15,32H16V33H15zM17,32H18V33H17zM19,32H20V33H19zM20,32H21V33H20zM22,32H23V33H22zM23,32H24V33H23zM24,32H25V33H24zM25,32H26V33H25zM28,32H29V33H28zM29,32H30V33H29zM30,32H31V33H30zM32,32H33V33H32zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM13,33H14V34H13zM15,33H16V34H15zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM20,33H21V34H20zM23,33H24V34H23zM24,33H25V34H24zM26,33H27V34H26zM27,33H28V34H27zM28,33H29V34H28zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM13,34H14V35H13zM14,34H15V35H14zM15,34H16V35H15zM16,34H17V35H16zM19,34H20V35H19zM21,34H22V35H21zM23,34H24V35H23zM26,34H27V35H26zM28,34H29V35H28zM34,34H35V35H34z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></a><p><b>掃描看這份簡報</b><br>規則、示意圖都在裡面</p></div>
 </section>
 
 <!-- 2 speaker -->
@@ -142,7 +157,8 @@ svg text{font-family:inherit}
         <li>社區大學講師；ICOPE 評估員、照顧者與長照專業人員培訓講師</li>
       </ul>
       <p style="margin-top:10px"><span class="tag">失智症</span><span class="tag">復能</span><span class="tag">健康促進</span><span class="tag">體智能</span><span class="tag">桌遊設計</span></p>
-      <a class="fb" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉絲專頁：鍾孟修Matt-職能治療師 →</a>
+      <div class="fbrow"><div class="qrsm"><a class="qra" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">
+<svg class="qr" role="img" aria-label="臉書粉絲專頁 QR Code" version="1.1" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM11,2H12V3H11zM12,2H13V3H12zM13,2H14V3H13zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM20,2H21V3H20zM21,2H22V3H21zM24,2H25V3H24zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM17,3H18V4H17zM18,3H19V4H18zM19,3H20V4H19zM25,3H26V4H25zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM11,4H12V5H11zM12,4H13V5H12zM13,4H14V5H13zM16,4H17V5H16zM17,4H18V5H17zM19,4H20V5H19zM20,4H21V5H20zM21,4H22V5H21zM22,4H23V5H22zM24,4H25V5H24zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM15,5H16V6H15zM17,5H18V6H17zM22,5H23V6H22zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM14,6H15V7H14zM18,6H19V7H18zM22,6H23V7H22zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM12,7H13V8H12zM13,7H14V8H13zM15,7H16V8H15zM16,7H17V8H16zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM12,9H13V10H12zM13,9H14V10H13zM16,9H17V10H16zM19,9H20V10H19zM20,9H21V10H20zM23,9H24V10H23zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM7,10H8V11H7zM8,10H9V11H8zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM23,10H24V11H23zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM29,10H30V11H29zM2,11H3V12H2zM5,11H6V12H5zM7,11H8V12H7zM9,11H10V12H9zM10,11H11V12H10zM18,11H19V12H18zM23,11H24V12H23zM26,11H27V12H26zM27,11H28V12H27zM28,11H29V12H28zM29,11H30V12H29zM34,11H35V12H34zM2,12H3V13H2zM6,12H7V13H6zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM12,12H13V13H12zM13,12H14V13H13zM18,12H19V13H18zM20,12H21V13H20zM21,12H22V13H21zM23,12H24V13H23zM26,12H27V13H26zM28,12H29V13H28zM29,12H30V13H29zM30,12H31V13H30zM32,12H33V13H32zM34,12H35V13H34zM2,13H3V14H2zM5,13H6V14H5zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM14,13H15V14H14zM16,13H17V14H16zM18,13H19V14H18zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM28,13H29V14H28zM30,13H31V14H30zM31,13H32V14H31zM33,13H34V14H33zM7,14H8V15H7zM8,14H9V15H8zM9,14H10V15H9zM11,14H12V15H11zM13,14H14V15H13zM17,14H18V15H17zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM28,14H29V15H28zM31,14H32V15H31zM33,14H34V15H33zM7,15H8V16H7zM9,15H10V16H9zM10,15H11V16H10zM17,15H18V16H17zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM23,15H24V16H23zM27,15H28V16H27zM28,15H29V16H28zM30,15H31V16H30zM31,15H32V16H31zM33,15H34V16H33zM34,15H35V16H34zM7,16H8V17H7zM8,16H9V17H8zM12,16H13V17H12zM13,16H14V17H13zM15,16H16V17H15zM22,16H23V17H22zM23,16H24V17H23zM24,16H25V17H24zM25,16H26V17H25zM26,16H27V17H26zM27,16H28V17H27zM28,16H29V17H28zM29,16H30V17H29zM30,16H31V17H30zM31,16H32V17H31zM32,16H33V17H32zM33,16H34V17H33zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM10,17H11V18H10zM11,17H12V18H11zM14,17H15V18H14zM15,17H16V18H15zM16,17H17V18H16zM17,17H18V18H17zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM23,17H24V18H23zM24,17H25V18H24zM25,17H26V18H25zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM33,17H34V18H33zM2,18H3V19H2zM5,18H6V19H5zM8,18H9V19H8zM15,18H16V19H15zM16,18H17V19H16zM19,18H20V19H19zM22,18H23V19H22zM23,18H24V19H23zM24,18H25V19H24zM26,18H27V19H26zM28,18H29V19H28zM30,18H31V19H30zM33,18H34V19H33zM3,19H4V20H3zM4,19H5V20H4zM9,19H10V20H9zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM15,19H16V20H15zM18,19H19V20H18zM23,19H24V20H23zM25,19H26V20H25zM29,19H30V20H29zM31,19H32V20H31zM33,19H34V20H33zM2,20H3V21H2zM4,20H5V21H4zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM13,20H14V21H13zM14,20H15V21H14zM15,20H16V21H15zM16,20H17V21H16zM18,20H19V21H18zM20,20H21V21H20zM23,20H24V21H23zM27,20H28V21H27zM32,20H33V21H32zM34,20H35V21H34zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM23,21H24V22H23zM26,21H27V22H26zM27,21H28V22H27zM29,21H30V22H29zM33,21H34V22H33zM2,22H3V23H2zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM13,22H14V23H13zM14,22H15V23H14zM16,22H17V23H16zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM24,22H25V23H24zM25,22H26V23H25zM33,22H34V23H33zM4,23H5V24H4zM5,23H6V24H5zM6,23H7V24H6zM7,23H8V24H7zM11,23H12V24H11zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM17,23H18V24H17zM18,23H19V24H18zM23,23H24V24H23zM24,23H25V24H24zM28,23H29V24H28zM31,23H32V24H31zM32,23H33V24H32zM33,23H34V24H33zM34,23H35V24H34zM2,24H3V25H2zM3,24H4V25H3zM5,24H6V25H5zM8,24H9V25H8zM10,24H11V25H10zM14,24H15V25H14zM16,24H17V25H16zM17,24H18V25H17zM21,24H22V25H21zM22,24H23V25H22zM24,24H25V25H24zM26,24H27V25H26zM28,24H29V25H28zM29,24H30V25H29zM30,24H31V25H30zM32,24H33V25H32zM34,24H35V25H34zM3,25H4V26H3zM4,25H5V26H4zM5,25H6V26H5zM7,25H8V26H7zM9,25H10V26H9zM10,25H11V26H10zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM20,25H21V26H20zM21,25H22V26H21zM23,25H24V26H23zM24,25H25V26H24zM30,25H31V26H30zM31,25H32V26H31zM2,26H3V27H2zM4,26H5V27H4zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM13,26H14V27H13zM14,26H15V27H14zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM20,26H21V27H20zM22,26H23V27H22zM23,26H24V27H23zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM33,26H34V27H33zM34,26H35V27H34zM10,27H11V28H10zM12,27H13V28H12zM13,27H14V28H13zM14,27H15V28H14zM21,27H22V28H21zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM26,27H27V28H26zM30,27H31V28H30zM31,27H32V28H31zM34,27H35V28H34zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM13,28H14V29H13zM15,28H16V29H15zM18,28H19V29H18zM22,28H23V29H22zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM16,29H17V30H16zM17,29H18V30H17zM22,29H23V30H22zM23,29H24V30H23zM26,29H27V30H26zM30,29H31V30H30zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM12,30H13V31H12zM13,30H14V31H13zM14,30H15V31H14zM16,30H17V31H16zM18,30H19V31H18zM23,30H24V31H23zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM31,30H32V31H31zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM16,31H17V32H16zM17,31H18V32H17zM19,31H20V32H19zM22,31H23V32H22zM23,31H24V32H23zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM28,31H29V32H28zM30,31H31V32H30zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM13,32H14V33H13zM19,32H20V33H19zM22,32H23V33H22zM23,32H24V33H23zM24,32H25V33H24zM25,32H26V33H25zM26,32H27V33H26zM27,32H28V33H27zM30,32H31V33H30zM32,32H33V33H32zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM12,33H13V34H12zM14,33H15V34H14zM15,33H16V34H15zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM20,33H21V34H20zM23,33H24V34H23zM24,33H25V34H24zM26,33H27V34H26zM31,33H32V34H31zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM14,34H15V35H14zM15,34H16V35H15zM16,34H17V35H16zM21,34H22V35H21zM23,34H24V35H23zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM30,34H31V35H30zM33,34H34V35H33z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></a></div><p><b>邀請你加入我的臉書粉絲專頁</b><br>鍾孟修Matt-職能治療師：每天分享教案，留言就能拿到教案連結</p></div>
     </div>
   </div>
 </section>
@@ -167,65 +183,116 @@ svg text{font-family:inherit}
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">破冰 1</span><h2>翻牌拍拍樂</h2></div>
-  <div class="cols">
-    <div class="box o"><h3>怎麼玩</h3><ol>
+  <div class="cols dcols">
+    <div class="box o sm"><h3>怎麼玩</h3><ol>
       <li>整副牌<b>蓋著</b>，散開鋪滿桌面。</li>
       <li>大家輪流，每人每次翻開一張。</li>
-      <li>翻開的牌<b>不再蓋回去</b>：和桌上的牌不一樣，就放著，換下一個人翻。</li>
-      <li>桌上出現<b>兩張一樣的數字</b>（例如兩張 7、兩張 K），<b>花色不同也算</b>，大家馬上伸手去拍。</li>
-      <li>先拍到的人拿走這一對。</li>
-      <li>牌都翻完，<b>拿到最多對</b>的人獲勝。</li>
-    </ol></div>
-    <div class="box"><h3>帶領小撇步</h3><ul>
-      <li>拍錯（數字不一樣）：暫停一輪，下一次輪到你不能翻牌。</li>
-      <li>手不方便的長輩：改成「先喊出來」也算。</li>
-      <li>變難：兩張加起來是 10 也要拍。</li>
-    </ul>
-    <p class="train"><b>練到：</b>視覺搜尋、反應速度、手眼協調、短期記憶</p></div>
+      <li>翻開的牌<b>不再蓋回去</b>：和桌上的不一樣，就放著。</li>
+      <li>出現<b>兩張一樣的數字</b>，<b>花色不同也算</b>，大家馬上去拍。</li>
+      <li>先拍到的人拿走這一對；牌翻完，<b>最多對</b>的人贏。</li></ol>
+      <p class="note">拍錯：暫停一輪。手不方便：先喊出來也算。變難：加起來 10 也要拍。</p>
+      <p class="train"><b>練到：</b>視覺搜尋、反應速度、手眼協調</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 620" role="img" aria-label="翻牌拍拍樂：新翻開 7 紅心，桌上已有 7 黑桃，快拍"><defs>
+<path id="k1S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k1S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k1S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k1S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k1S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k1S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k1C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k1PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k1PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k1PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k1AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><g transform="translate(110,110) rotate(-6) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(280,110) rotate(4) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">K</text><text y="46" class="ps" fill="#C8102E">♥</text></g><g transform="translate(450,110) rotate(-3) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(620,110) rotate(5) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">3</text><text y="46" class="ps" fill="#C8102E">♦</text></g><g transform="translate(790,110) rotate(-4) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(110,300) rotate(3) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">7</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(280,300) rotate(-5) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(450,300) rotate(4) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(620,300) rotate(-3) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">7</text><text y="46" class="ps" fill="#C8102E">♥</text></g><g transform="translate(790,300) rotate(6) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><rect x="55.0" y="225.8" width="110.0" height="148.4" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><rect x="565.0" y="225.8" width="110.0" height="148.4" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="860" y="270" class="dbig" text-anchor="start">拍！</text><text x="20" y="450" class="dl" text-anchor="start">新翻開 7♥，桌上已經有 7♠</text><text x="20" y="515" class="dh" text-anchor="start">數字一樣、花色不同也算 → 快拍！</text><text x="20" y="590" class="dn" text-anchor="start">K♥、3♦ 沒有一樣的 → 放著，換下一位翻</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">破冰 2</span><h2>喊名字遊戲</h2></div>
-  <div class="cols">
+  <div class="cols dcols">
     <div class="box o sm"><h3>怎麼玩</h3><ol>
-      <li>開始前，每人<b>自己取一個台灣特色名字</b>，向大家介紹自己。</li>
-      <li>牌平均發完，牌蓋著疊在自己手上。</li>
-      <li>順時針輪流，把最上面一張翻開丟在自己面前；下一輪的牌<b>蓋在自己原本的牌上面</b>。</li>
-      <li>任兩人最上面的牌<b>數字一樣</b>（含 J、Q、K），這兩人搶著<b>喊對方的名字</b>。</li>
-      <li><b>先喊對的人</b>：把對方丟出來的牌全部收走，和自己丟出的牌一起收回手上，重新洗牌。</li>
-      <li><b>其他沒事的人</b>：把自己丟出來的牌收回去，一樣重新洗牌。</li>
-      <li>由<b>贏的人先出牌</b>，再順時針進行。時間到，手上牌最多的人獲勝。</li>
-    </ol></div>
-    <div class="box"><h3>名字格式：形容詞或地名＋名詞</h3>
-      <p class="big">例如 <b class="num">苗栗草莓</b>、<b class="num">萬巒豬腳</b></p>
-      <ul><li>自己取：家鄉、愛吃的、去玩過的地方都可以。</li><li>名字寫在名牌上，方便偷看。</li><li>熟了以後換名字再玩一輪，記憶更難。</li></ul>
-      <p class="train"><b>練到：</b>記憶新資訊（名字配人）、注意力切換、口語表達、認識彼此</p></div>
+      <li>每人<b>自己取一個台灣特色名字</b>，向大家介紹。</li>
+      <li>牌平均發完，蓋著疊在自己手上。</li>
+      <li>順時針輪流翻一張丟在面前，新牌<b>蓋在原本的牌上</b>。</li>
+      <li>兩人最上面的牌<b>數字一樣</b>（含 J、Q、K），搶著<b>喊對方的名字</b>。</li>
+      <li><b>先喊對的人</b>收走對方丟出的牌，和自己的一起收回、重新洗牌。</li>
+      <li><b>其他人</b>收回自己的牌，一樣重新洗牌。</li>
+      <li><b>贏的人先出</b>，再順時針。時間到，牌最多的人贏。</li></ol></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 630" role="img" aria-label="喊名字遊戲：苗栗草莓和大溪豆干都翻出 5，搶著喊對方名字"><defs>
+<path id="k2S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k2S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k2S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k2S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k2S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k2S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k2C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k2PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k2PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k2PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k2AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="230" y="95" class="dl" text-anchor="middle">苗栗草莓</text><g transform="translate(220,196) rotate(-4) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(230,190) rotate(0) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">5</text><text y="46" class="ps" fill="#1B1B1B">♣</text></g><rect x="181.0" y="124.2" width="98.0" height="131.6" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="800" y="95" class="dl" text-anchor="middle">萬巒豬腳</text><g transform="translate(790,196) rotate(-4) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(800,190) rotate(0) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">Q</text><text y="46" class="ps" fill="#C8102E">♦</text></g><text x="230" y="375" class="dl" text-anchor="middle">大溪豆干</text><g transform="translate(220,476) rotate(-4) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(230,470) rotate(0) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">5</text><text y="46" class="ps" fill="#C8102E">♥</text></g><rect x="181.0" y="404.2" width="98.0" height="131.6" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="800" y="375" class="dl" text-anchor="middle">台南虱目魚</text><g transform="translate(790,476) rotate(-4) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#028090" stroke="#01646E" stroke-width="3"/><rect x="-48" y="-72" width="96" height="144" rx="6" fill="none" stroke="#9FD3D1" stroke-width="3"/></g><g transform="translate(800,470) rotate(0) scale(0.7)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">9</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><rect x="330" y="140" width="330" height="70" rx="35" fill="#FCE3D2"/><text x="495" y="188" class="dh" text-anchor="middle">「大溪豆干！」</text><rect x="330" y="420" width="330" height="70" rx="35" fill="#E3F1EF"/><text x="495" y="468" class="dl" text-anchor="middle">「苗栗草莓！」</text><text x="20" y="610" class="dh" text-anchor="start">兩張 5 一樣 → 搶著喊對方的名字</text></svg></div>
   </div>
 </section>
 
 <section class="slide alt">
   <div class="head"><span class="eyebrow o">破冰 2・取名字</span><h2>自己取一個台灣特色名字</h2>
-  <p class="big">家鄉＋名產、地名＋小吃都可以。想不到的話，參考看看：</p></div>
+  <p class="big">形容詞或地名＋名詞，例如 <b class="num">苗栗草莓</b>、<b class="num">萬巒豬腳</b>。想不到的話，挑一個：</p></div>
   <div class="namelist" id="nameList"></div>
+  <p class="note">名字寫在名牌上方便偷看；熟了以後換名字再玩一輪。 <b style="color:#035E66">練到：</b>記憶新資訊、注意力切換、口語表達</p>
 </section>
 
 <section class="slide">
-  <div class="head"><span class="eyebrow o">破冰 3</span><h2>去頭去尾 與 逆轉勝</h2>
-  <p>四人一組，每人拿<b>自己花色的 A–K</b>（黑桃、愛心、方塊、梅花各一人），A＝1、J＝11、Q＝12、K＝13。每輪大家同時出一張牌。</p></div>
-  <div class="cols sm">
-    <div class="box o"><h3>(a) 去頭去尾：最大、最小互換</h3>
-      <p>出最大和出最小的人<b>交換牌</b>，中間兩人拿回自己的牌，牌上的點數就是得分。</p>
-      <p class="note">例：13、9、5、2 → 出 13 的人拿到 2，出 2 的人拿到 13，另兩人拿回 9、5。</p>
-      <p><b>比不出最大或最小就不換</b>：</p>
-      <p class="note">例：13、9、2、2（兩個最小）或 12、12、9、3（兩個最大）→ 不交換，大家各自拿回自己出的牌。</p></div>
-    <div class="box p"><h3>(b) 逆轉勝：最大、最小去掉</h3>
-      <p>最大和最小的牌<b>都去掉、沒有分數</b>，只留中間的人得分。</p>
-      <p class="note">例：13、9、5、2 → 只有出 9 和 5 的人得分。</p>
-      <p><b>一樣大或一樣小，全部一起去掉</b>：</p>
-      <p class="note">例：12、12、9、3 → 兩張 12 和 3 都去掉，只有出 9 的人得分。</p></div>
+  <div class="head"><span class="eyebrow o">破冰 3</span><h2>去頭去尾：最大、最小互換</h2></div>
+  <div class="cols dcols">
+    <div class="box o sm"><h3>準備</h3>
+      <p>四人一組，每人拿<b>自己花色的 A–K</b>（黑桃、愛心、方塊、梅花各一人）。A＝1、J＝11、Q＝12、K＝13。</p>
+      <h3 style="margin-top:8px">怎麼玩</h3><ol>
+      <li>每輪大家同時出一張牌。</li>
+      <li>出最大和出最小的人<b>交換牌</b>，中間兩人拿回自己的牌。</li>
+      <li>拿到的牌，點數就是分數。</li>
+      <li><b>比不出最大或最小就不換</b>，各自拿回自己的牌。</li>
+      <li>13 張出完，分數最高的人贏。</li></ol></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 580" role="img" aria-label="去頭去尾：K 和 2 互換，中間兩人拿回自己的牌"><defs>
+<path id="k3S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k3S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k3S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k3S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k3S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k3S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k3C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k3PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k3PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k3PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k3AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="170" y="44" class="dn" text-anchor="middle">黑桃</text><text x="410" y="44" class="dn" text-anchor="middle">愛心</text><text x="650" y="44" class="dn" text-anchor="middle">方塊</text><text x="890" y="44" class="dn" text-anchor="middle">梅花</text><g transform="translate(170,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">K</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(410,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">9</text><text y="46" class="ps" fill="#C8102E">♥</text></g><g transform="translate(650,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">5</text><text y="46" class="ps" fill="#C8102E">♦</text></g><g transform="translate(890,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">2</text><text y="46" class="ps" fill="#1B1B1B">♣</text></g><path d="M170,240 Q530,400 890,240" stroke="#E8552D" stroke-width="6" fill="none" marker-start="url(#k3AR)" marker-end="url(#k3AR)"/><text x="530" y="380" class="dh" text-anchor="middle">最大、最小互換</text><text x="170" y="460" class="dl" text-anchor="middle">得 2 分</text><text x="410" y="460" class="dl" text-anchor="middle">得 9 分</text><text x="650" y="460" class="dl" text-anchor="middle">得 5 分</text><text x="890" y="460" class="dl" text-anchor="middle">得 13 分</text><text x="20" y="550" class="dn" text-anchor="start">兩個一樣小（13、9、2、2）→ 不換，各自拿回</text></svg></div>
   </div>
-  <p class="note">13 張都出完，累計分數最高的人獲勝。 <b style="color:#035E66">練到：</b>比大小、加總、猜別人會出什麼、計畫留牌</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 3</span><h2>逆轉勝：最大、最小去掉</h2></div>
+  <div class="cols dcols">
+    <div class="box p sm"><h3>怎麼玩</h3><ol>
+      <li>一樣四人各拿自己花色的 A–K，每輪同時出一張。</li>
+      <li>最大和最小的牌<b>都去掉、沒有分數</b>。</li>
+      <li>只有中間的人得分。</li>
+      <li><b>一樣大或一樣小，全部一起去掉。</b></li>
+      <li>13 張出完，分數最高的人贏。</li></ol>
+      <p class="train"><b>練到：</b>比大小、加總、猜別人會出什麼、計畫留牌</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 580" role="img" aria-label="逆轉勝：K 和 2 去掉，只有中間兩人得分"><defs>
+<path id="k4S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k4S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k4S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k4S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k4S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k4S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k4C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k4PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k4PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k4PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k4AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="170" y="44" class="dn" text-anchor="middle">黑桃</text><text x="410" y="44" class="dn" text-anchor="middle">愛心</text><text x="650" y="44" class="dn" text-anchor="middle">方塊</text><text x="890" y="44" class="dn" text-anchor="middle">梅花</text><g transform="translate(170,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">K</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(410,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">9</text><text y="46" class="ps" fill="#C8102E">♥</text></g><g transform="translate(650,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">5</text><text y="46" class="ps" fill="#C8102E">♦</text></g><g transform="translate(890,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">2</text><text y="46" class="ps" fill="#1B1B1B">♣</text></g><path d="M122.0,92.8 L218.0,227.2 M218.0,92.8 L122.0,227.2" stroke="#E8552D" stroke-width="8" stroke-linecap="round"/><path d="M842.0,92.8 L938.0,227.2 M938.0,92.8 L842.0,227.2" stroke="#E8552D" stroke-width="8" stroke-linecap="round"/><text x="530" y="300" class="dh" text-anchor="middle">最大、最小去掉</text><text x="170" y="460" class="dl" text-anchor="middle">0 分</text><text x="410" y="460" class="dl" text-anchor="middle">得 9 分</text><text x="650" y="460" class="dl" text-anchor="middle">得 5 分</text><text x="890" y="460" class="dl" text-anchor="middle">0 分</text><text x="20" y="550" class="dn" text-anchor="start">一樣大（12、12、9、3）→ 兩張 12 和 3 都去掉</text></svg></div>
+  </div>
 </section>
 
 <section class="slide alt">
@@ -243,43 +310,80 @@ svg text{font-family:inherit}
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">破冰 4</span><h2>牌七（排七）</h2></div>
-  <div class="cols">
-    <div class="box o"><h3>怎麼玩</h3><ol>
+  <div class="cols dcols">
+    <div class="box o sm"><h3>怎麼玩</h3><ol>
       <li>4 人，每人 13 張。拿到<b>黑桃 7</b> 的人先出。</li>
-      <li>每種花色都從 <b>7</b> 開始：往下接 6、5…A，往上接 8、9…K。</li>
-      <li>其他花色的 7 隨時可以出，開一條新的龍。</li>
-      <li>輪到你：有牌能接就一定要出一張；<b>沒牌可接</b>，就蓋一張牌在自己面前。</li>
-      <li>大家手牌出完後，翻開自己<b>蓋起來的牌加總</b>，分數最少的人獲勝。</li>
-    </ol></div>
-    <div class="box"><h3>帶領小撇步</h3><ul>
-      <li>桌上排成 4 排（一排一個花色），7 放中間，長輩一眼看得出能接哪裡。</li>
-      <li>策略：手上 A、K 這種大小頭，可以先「卡」別人。</li>
-      <li>蓋牌要蓋點數小的，才不會扣太多分。</li>
-    </ul>
-    <p class="train"><b>練到：</b>排序（數字前後）、分類（花色）、計畫與策略、加總</p></div>
+      <li>每種花色從 <b>7</b> 開始：往下接 6、5…A，往上接 8、9…K。</li>
+      <li>其他花色的 7 隨時可以出。</li>
+      <li>有牌能接就要出；<b>沒牌可接</b>，蓋一張在自己面前。</li>
+      <li>出完後，<b>蓋起來的牌加總</b>，分數最少的人贏。</li></ol>
+      <p class="note">桌上一個花色排一排，7 放中間，一眼看出能接哪裡。蓋牌挑點數小的。</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 670" role="img" aria-label="牌七：從 7 往上往下接，手上 4 黑桃、9 紅心可以接"><defs>
+<path id="k5S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k5S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k5S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k5S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k5S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k5S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k5C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k5PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k5PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k5PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k5AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="60" y="97" class="ps2" fill="#1B1B1B">♠</text><g transform="translate(345,75) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">5</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(470,75) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">6</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(595,75) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">7</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(720,75) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">8</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(845,75) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">9</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><text x="60" y="219" class="ps2" fill="#C8102E">♥</text><g transform="translate(595,197) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">7</text><text y="46" class="ps" fill="#C8102E">♥</text></g><g transform="translate(720,197) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">8</text><text y="46" class="ps" fill="#C8102E">♥</text></g><text x="60" y="341" class="ps2" fill="#C8102E">♦</text><g transform="translate(470,319) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">6</text><text y="46" class="ps" fill="#C8102E">♦</text></g><g transform="translate(595,319) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">7</text><text y="46" class="ps" fill="#C8102E">♦</text></g><text x="60" y="463" class="ps2" fill="#1B1B1B">♣</text><rect x="550.8" y="381.92" width="88.4" height="118.16" rx="12" fill="none" stroke="#E8552D" stroke-width="6" stroke-dasharray="14 9"/><text x="665" y="455" class="dn" text-anchor="start">7 還沒出</text><text x="20" y="600" class="dl" text-anchor="start">手上</text><g transform="translate(190,600) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">4</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><rect x="145.8" y="540.92" width="88.4" height="118.16" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><g transform="translate(315,600) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">9</text><text y="46" class="ps" fill="#C8102E">♥</text></g><rect x="270.8" y="540.92" width="88.4" height="118.16" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><g transform="translate(440,600) rotate(0) scale(0.62)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">Q</text><text y="46" class="ps" fill="#1B1B1B">♣</text></g><text x="560" y="590" class="dl" text-anchor="start">4♠ 接 5♠、9♥ 接 8♥</text><text x="560" y="645" class="dn" text-anchor="start">都不能接 → 蓋一張</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">破冰 5</span><h2>撿紅點：湊成 10 就收走</h2></div>
-  <div class="cols">
+  <div class="cols dcols">
     <div class="box o sm"><h3>怎麼玩（4 人）</h3><ol>
-      <li>每人發 <b>6 張</b>，桌面中間翻開 <b>4 張</b>，其餘蓋成牌堆。</li>
-      <li>輪到你：出一張手牌，和桌上一張<b>加起來 10</b> 就把兩張收走（A+9、2+8、3+7、4+6、5+5）。</li>
-      <li><b>10、J、Q、K</b> 要配<b>一樣的</b>：10 配 10、J 配 J…</li>
-      <li>配不到：這張牌留在桌上。</li>
-      <li>接著翻牌堆最上面一張，一樣能配就收走，不能配就留在桌上。</li>
-      <li>牌全部出完，算自己收到的紅色牌分數。</li>
-    </ol></div>
-    <div class="box sm"><h3>怎麼算分</h3>
+      <li>每人 <b>6 張</b>，桌面中間翻開 <b>4 張</b>，其餘蓋成牌堆。</li>
+      <li>出一張手牌，和桌上一張<b>加起來 10</b> 就兩張收走（A+9、2+8、3+7、4+6、5+5）。</li>
+      <li><b>10、J、Q、K</b> 配<b>一樣的</b>：10 配 10、K 配 K。</li>
+      <li>配不到：這張留在桌上。</li>
+      <li>再翻牌堆一張，一樣能配就收走。</li>
+      <li>牌出完，算收到的紅色牌分數。</li></ol></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 610" role="img" aria-label="撿紅點：2 方塊加 8 紅心等於 10 收走；K 配 K 收走"><defs>
+<path id="k6S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k6S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k6S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k6S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k6S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k6S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k6C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k6PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k6PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k6PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k6AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="40" class="dl" text-anchor="start">桌上翻開 4 張</text><g transform="translate(200,150) rotate(0) scale(0.75)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">3</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><g transform="translate(370,150) rotate(0) scale(0.75)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">8</text><text y="46" class="ps" fill="#C8102E">♥</text></g><g transform="translate(540,150) rotate(0) scale(0.75)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">K</text><text y="46" class="ps" fill="#1B1B1B">♣</text></g><g transform="translate(710,150) rotate(0) scale(0.75)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">6</text><text y="46" class="ps" fill="#C8102E">♦</text></g><rect x="318.0" y="80.0" width="104.0" height="140.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><rect x="488.0" y="80.0" width="104.0" height="140.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="20" y="340" class="dl" text-anchor="start">手上出</text><g transform="translate(200,440) rotate(0) scale(0.75)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">2</text><text y="46" class="ps" fill="#C8102E">♦</text></g><path d="M240,370 L340,250" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#k6AR)"/><g transform="translate(700,440) rotate(0) scale(0.75)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">K</text><text y="46" class="ps" fill="#C8102E">♥</text></g><path d="M670,370 L570,250" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#k6AR)"/><text x="120" y="580" class="dh" text-anchor="start">2＋8＝10 → 收走 2 張</text><text x="620" y="580" class="dh" text-anchor="start">K 配 K → 收走</text></svg></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 5</span><h2>撿紅點：怎麼算分</h2></div>
+  <div class="cols dcols">
+    <div class="box sm">
       <table><tr><th>牌</th><th>分數</th></tr>
       <tr><td>紅心、方塊 A</td><td>20 分</td></tr>
-      <tr><td>紅心、方塊 2–8</td><td>看數字（2 就是 2 分）</td></tr>
-      <tr><td>紅心、方塊 9、10、J、Q、K</td><td>10 分</td></tr>
-      <tr><td>黑桃 A</td><td>30 分（各地不同，先約定）</td></tr>
+      <tr><td>紅心、方塊 2–8</td><td>看數字</td></tr>
+      <tr><td>紅心、方塊 9–K</td><td>10 分</td></tr>
+      <tr><td>黑桃 A</td><td>30 分（先約定）</td></tr>
       <tr><td>其他黑色牌</td><td>0 分</td></tr></table>
-      <p class="note">全副總分 240 分，4 人平均 60 分，超過 60 就算贏。長輩版：直接比誰收到的紅點最多。</p>
-    </div>
+      <p class="note">全副 240 分，4 人平均 60 分，超過 60 就贏。長輩版：比誰紅點最多。</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 500" role="img" aria-label="撿紅點計分範例：紅心 A 20 分、紅心 8 8 分、方塊 K 10 分、方塊 5 5 分，共 43 分"><defs>
+<path id="k7S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="k7S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="k7S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="k7S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="k7S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="k7S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="k7C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="k7PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="k7PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="k7PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="k7AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="40" class="dl" text-anchor="start">收到的牌</text><g transform="translate(120,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">A</text><text y="46" class="ps" fill="#C8102E">♥</text></g><text x="120" y="310" class="dl" text-anchor="middle">20 分</text><g transform="translate(325,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">8</text><text y="46" class="ps" fill="#C8102E">♥</text></g><text x="325" y="310" class="dl" text-anchor="middle">8 分</text><g transform="translate(530,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">K</text><text y="46" class="ps" fill="#C8102E">♦</text></g><text x="530" y="310" class="dl" text-anchor="middle">10 分</text><g transform="translate(735,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#C8102E">5</text><text y="46" class="ps" fill="#C8102E">♦</text></g><text x="735" y="310" class="dl" text-anchor="middle">5 分</text><g transform="translate(940,160) rotate(0) scale(0.8)"><rect x="-60" y="-84" width="120" height="168" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="3"/><text x="-48" y="-44" class="pr" fill="#1B1B1B">3</text><text y="46" class="ps" fill="#1B1B1B">♠</text></g><text x="940" y="310" class="dl" text-anchor="middle">0 分</text><text x="20" y="410" class="dh" text-anchor="start">20＋8＋10＋5＝43 分</text><text x="20" y="470" class="dn" text-anchor="start">黑色牌（黑桃 A 除外）不算分</text></svg></div>
   </div>
 </section>
 
@@ -679,6 +783,8 @@ svg text{font-family:inherit}
 <section class="slide dark cover" style="background:var(--ink)">
   <h1 style="color:#fff">謝謝大家，一起玩起來！</h1>
   <p class="sub" style="color:#D6E2E0">撲克牌 5 款破冰＋108 張手繪卡：形色棋、拉密、數字撞鐘、誰是牛頭王、數字炸彈</p>
+  <div class="fbrow" style="gap:28px"><div class="qrsm" style="width:200px;height:200px"><a class="qra" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">
+<svg class="qr" role="img" aria-label="臉書粉絲專頁 QR Code" version="1.1" viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM11,2H12V3H11zM12,2H13V3H12zM13,2H14V3H13zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM20,2H21V3H20zM21,2H22V3H21zM24,2H25V3H24zM25,2H26V3H25zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM17,3H18V4H17zM18,3H19V4H18zM19,3H20V4H19zM25,3H26V4H25zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM11,4H12V5H11zM12,4H13V5H12zM13,4H14V5H13zM16,4H17V5H16zM17,4H18V5H17zM19,4H20V5H19zM20,4H21V5H20zM21,4H22V5H21zM22,4H23V5H22zM24,4H25V5H24zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM15,5H16V6H15zM17,5H18V6H17zM22,5H23V6H22zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM14,6H15V7H14zM18,6H19V7H18zM22,6H23V7H22zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM10,7H11V8H10zM11,7H12V8H11zM12,7H13V8H12zM13,7H14V8H13zM15,7H16V8H15zM16,7H17V8H16zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM12,9H13V10H12zM13,9H14V10H13zM16,9H17V10H16zM19,9H20V10H19zM20,9H21V10H20zM23,9H24V10H23zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM7,10H8V11H7zM8,10H9V11H8zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM23,10H24V11H23zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM29,10H30V11H29zM2,11H3V12H2zM5,11H6V12H5zM7,11H8V12H7zM9,11H10V12H9zM10,11H11V12H10zM18,11H19V12H18zM23,11H24V12H23zM26,11H27V12H26zM27,11H28V12H27zM28,11H29V12H28zM29,11H30V12H29zM34,11H35V12H34zM2,12H3V13H2zM6,12H7V13H6zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM12,12H13V13H12zM13,12H14V13H13zM18,12H19V13H18zM20,12H21V13H20zM21,12H22V13H21zM23,12H24V13H23zM26,12H27V13H26zM28,12H29V13H28zM29,12H30V13H29zM30,12H31V13H30zM32,12H33V13H32zM34,12H35V13H34zM2,13H3V14H2zM5,13H6V14H5zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM14,13H15V14H14zM16,13H17V14H16zM18,13H19V14H18zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM28,13H29V14H28zM30,13H31V14H30zM31,13H32V14H31zM33,13H34V14H33zM7,14H8V15H7zM8,14H9V15H8zM9,14H10V15H9zM11,14H12V15H11zM13,14H14V15H13zM17,14H18V15H17zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM28,14H29V15H28zM31,14H32V15H31zM33,14H34V15H33zM7,15H8V16H7zM9,15H10V16H9zM10,15H11V16H10zM17,15H18V16H17zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM23,15H24V16H23zM27,15H28V16H27zM28,15H29V16H28zM30,15H31V16H30zM31,15H32V16H31zM33,15H34V16H33zM34,15H35V16H34zM7,16H8V17H7zM8,16H9V17H8zM12,16H13V17H12zM13,16H14V17H13zM15,16H16V17H15zM22,16H23V17H22zM23,16H24V17H23zM24,16H25V17H24zM25,16H26V17H25zM26,16H27V17H26zM27,16H28V17H27zM28,16H29V17H28zM29,16H30V17H29zM30,16H31V17H30zM31,16H32V17H31zM32,16H33V17H32zM33,16H34V17H33zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM10,17H11V18H10zM11,17H12V18H11zM14,17H15V18H14zM15,17H16V18H15zM16,17H17V18H16zM17,17H18V18H17zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM23,17H24V18H23zM24,17H25V18H24zM25,17H26V18H25zM28,17H29V18H28zM29,17H30V18H29zM30,17H31V18H30zM33,17H34V18H33zM2,18H3V19H2zM5,18H6V19H5zM8,18H9V19H8zM15,18H16V19H15zM16,18H17V19H16zM19,18H20V19H19zM22,18H23V19H22zM23,18H24V19H23zM24,18H25V19H24zM26,18H27V19H26zM28,18H29V19H28zM30,18H31V19H30zM33,18H34V19H33zM3,19H4V20H3zM4,19H5V20H4zM9,19H10V20H9zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM15,19H16V20H15zM18,19H19V20H18zM23,19H24V20H23zM25,19H26V20H25zM29,19H30V20H29zM31,19H32V20H31zM33,19H34V20H33zM2,20H3V21H2zM4,20H5V21H4zM7,20H8V21H7zM8,20H9V21H8zM9,20H10V21H9zM13,20H14V21H13zM14,20H15V21H14zM15,20H16V21H15zM16,20H17V21H16zM18,20H19V21H18zM20,20H21V21H20zM23,20H24V21H23zM27,20H28V21H27zM32,20H33V21H32zM34,20H35V21H34zM6,21H7V22H6zM7,21H8V22H7zM10,21H11V22H10zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM22,21H23V22H22zM23,21H24V22H23zM26,21H27V22H26zM27,21H28V22H27zM29,21H30V22H29zM33,21H34V22H33zM2,22H3V23H2zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM9,22H10V23H9zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM13,22H14V23H13zM14,22H15V23H14zM16,22H17V23H16zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM24,22H25V23H24zM25,22H26V23H25zM33,22H34V23H33zM4,23H5V24H4zM5,23H6V24H5zM6,23H7V24H6zM7,23H8V24H7zM11,23H12V24H11zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM17,23H18V24H17zM18,23H19V24H18zM23,23H24V24H23zM24,23H25V24H24zM28,23H29V24H28zM31,23H32V24H31zM32,23H33V24H32zM33,23H34V24H33zM34,23H35V24H34zM2,24H3V25H2zM3,24H4V25H3zM5,24H6V25H5zM8,24H9V25H8zM10,24H11V25H10zM14,24H15V25H14zM16,24H17V25H16zM17,24H18V25H17zM21,24H22V25H21zM22,24H23V25H22zM24,24H25V25H24zM26,24H27V25H26zM28,24H29V25H28zM29,24H30V25H29zM30,24H31V25H30zM32,24H33V25H32zM34,24H35V25H34zM3,25H4V26H3zM4,25H5V26H4zM5,25H6V26H5zM7,25H8V26H7zM9,25H10V26H9zM10,25H11V26H10zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM20,25H21V26H20zM21,25H22V26H21zM23,25H24V26H23zM24,25H25V26H24zM30,25H31V26H30zM31,25H32V26H31zM2,26H3V27H2zM4,26H5V27H4zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM13,26H14V27H13zM14,26H15V27H14zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM19,26H20V27H19zM20,26H21V27H20zM22,26H23V27H22zM23,26H24V27H23zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM33,26H34V27H33zM34,26H35V27H34zM10,27H11V28H10zM12,27H13V28H12zM13,27H14V28H13zM14,27H15V28H14zM21,27H22V28H21zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM26,27H27V28H26zM30,27H31V28H30zM31,27H32V28H31zM34,27H35V28H34zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM13,28H14V29H13zM15,28H16V29H15zM18,28H19V29H18zM22,28H23V29H22zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM16,29H17V30H16zM17,29H18V30H17zM22,29H23V30H22zM23,29H24V30H23zM26,29H27V30H26zM30,29H31V30H30zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM12,30H13V31H12zM13,30H14V31H13zM14,30H15V31H14zM16,30H17V31H16zM18,30H19V31H18zM23,30H24V31H23zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM31,30H32V31H31zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM16,31H17V32H16zM17,31H18V32H17zM19,31H20V32H19zM22,31H23V32H22zM23,31H24V32H23zM24,31H25V32H24zM25,31H26V32H25zM26,31H27V32H26zM28,31H29V32H28zM30,31H31V32H30zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM12,32H13V33H12zM13,32H14V33H13zM19,32H20V33H19zM22,32H23V33H22zM23,32H24V33H23zM24,32H25V33H24zM25,32H26V33H25zM26,32H27V33H26zM27,32H28V33H27zM30,32H31V33H30zM32,32H33V33H32zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM11,33H12V34H11zM12,33H13V34H12zM14,33H15V34H14zM15,33H16V34H15zM17,33H18V34H17zM18,33H19V34H18zM19,33H20V34H19zM20,33H21V34H20zM23,33H24V34H23zM24,33H25V34H24zM26,33H27V34H26zM31,33H32V34H31zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM14,34H15V35H14zM15,34H16V35H15zM16,34H17V35H16zM21,34H22V35H21zM23,34H24V35H23zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM30,34H31V35H30zM33,34H34V35H33z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></a></div><p style="font-size:28px;color:#D6E2E0"><b style="color:#fff;font-size:34px">歡迎加入我的臉書粉絲專頁</b><br>鍾孟修Matt-職能治療師<br>每天分享教案，留言就能拿到教案連結</p></div>
   <p class="who" style="color:#F4A93C">愛迪樂｜鍾孟修 職能治療師</p>
 </section>
 
