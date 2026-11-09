@@ -95,6 +95,15 @@ svg text{font-family:inherit}
 /* flip list */
 .flips{display:flex;flex-wrap:wrap;gap:10px}
 .flips span{font-size:26px;font-weight:700;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 14px;color:var(--pen)}
+/* rule diagrams */
+.dcols{grid-template-columns:.8fr 1.2fr}
+.dbox{padding:12px;align-items:center;justify-content:center;min-height:0}
+.dia{width:100%;height:100%;min-height:0}
+.dia .dl{font-size:40px;font-weight:700;fill:var(--ink)}
+.dia .dn{font-size:36px;fill:var(--body)}
+.dia .dh{font-size:40px;font-weight:900;fill:var(--orange)}
+.dia .dnum{font-size:84px;font-weight:700;fill:var(--pen);text-anchor:middle}
+.dia .dq{font-size:72px;font-weight:700;fill:#A99F8B;text-anchor:middle}
 /* controls */
 #bar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px;align-items:center;background:rgba(18,52,59,.85);border-radius:999px;padding:6px 10px;opacity:.25;transition:opacity .2s;z-index:5}
 #bar:hover{opacity:1}
@@ -307,6 +316,7 @@ svg text{font-family:inherit}
 <pattern id="sPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
 <pattern id="sPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
 <pattern id="sPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="sAR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
 </defs><use href="#sC" transform="translate(125,80) scale(1.15)"/><use href="#sS0" transform="translate(125,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(375,80) scale(1.15)"/><use href="#sS1" transform="translate(375,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(625,80) scale(1.15)"/><use href="#sS2" transform="translate(625,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(875,80) scale(1.15)"/><use href="#sS3" transform="translate(875,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(1125,80) scale(1.15)"/><use href="#sS4" transform="translate(1125,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(1375,80) scale(1.15)"/><use href="#sS5" transform="translate(1375,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/></svg>
   <div class="caps">
     <div><b>圓形</b><p>一筆畫一圈，頭尾接起來</p></div>
@@ -332,6 +342,7 @@ svg text{font-family:inherit}
 <pattern id="pPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
 <pattern id="pPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
 <pattern id="pPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="pAR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
 </defs><use href="#pC" transform="translate(125,80) scale(1.15)"/><use href="#pS1" transform="translate(125,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(375,80) scale(1.15)"/><use href="#pS1" transform="translate(375,80) scale(1.15)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(625,80) scale(1.15)"/><use href="#pS1" transform="translate(625,80) scale(1.15)" fill="url(#pPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(875,80) scale(1.15)"/><use href="#pS1" transform="translate(875,80) scale(1.15)" fill="url(#pPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(1125,80) scale(1.15)"/><use href="#pS1" transform="translate(1125,80) scale(1.15)" fill="url(#pPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(1375,80) scale(1.15)"/><use href="#pS1" transform="translate(1375,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pS1" transform="translate(1375,80) scale(1.15) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/></svg>
   <div class="caps">
     <div><b>1. 空心</b><p>只畫外框，裡面留白</p></div>
@@ -357,6 +368,7 @@ svg text{font-family:inherit}
 <pattern id="gPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
 <pattern id="gPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
 <pattern id="gPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="gAR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
 </defs><text x="265.0" y="44" class="gh">圓形</text><text x="495.0" y="44" class="gh">正方形</text><text x="725.0" y="44" class="gh">三角形</text><text x="955.0" y="44" class="gh">菱形</text><text x="1185.0" y="44" class="gh">星星</text><text x="1415.0" y="44" class="gh">愛心</text><text x="70" y="142.0" class="gl">1. 空心</text><use href="#gC" transform="translate(265.0,130.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,130.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,130.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,130.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,130.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,130.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="274.0" class="gl">2. 塗滿</text><use href="#gC" transform="translate(265.0,262.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,262.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,262.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,262.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,262.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,262.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="406.0" class="gl">3. 橫線</text><use href="#gC" transform="translate(265.0,394.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,394.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,394.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,394.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,394.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,394.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="538.0" class="gl">4. 點點</text><use href="#gC" transform="translate(265.0,526.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,526.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,526.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,526.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,526.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,526.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="670.0" class="gl">5. 格子</text><use href="#gC" transform="translate(265.0,658.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,658.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,658.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,658.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,658.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,658.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="802.0" class="gl">6. 雙圈</text><use href="#gC" transform="translate(265.0,790.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS0" transform="translate(265.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,790.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS1" transform="translate(495.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,790.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS2" transform="translate(725.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,790.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS3" transform="translate(955.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,790.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS4" transform="translate(1185.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,790.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS5" transform="translate(1415.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/></svg>
 </section>
 
@@ -383,6 +395,7 @@ svg text{font-family:inherit}
 <pattern id="bPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
 <pattern id="bPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
 <pattern id="bPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="bAR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
 </defs><use href="#bC" transform="translate(150,90) scale(1.2)"/><text x="150" y="112" class="bn">7</text><path d="M108,126 H192" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><use href="#bC" transform="translate(450,90) scale(1.2)"/><text x="450" y="112" class="bn">25</text><path d="M408,126 H492" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><use href="#bC" transform="translate(750,90) scale(1.2)"/><text x="750" y="112" class="bn">40</text><path d="M708,126 H792" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><use href="#bC" transform="translate(1050,90) scale(1.2)"/><text x="1050" y="112" class="bn">66</text><path d="M1008,126 H1092" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><use href="#bC" transform="translate(1350,90) scale(1.2)"/><text x="1350" y="112" class="bn">99</text><path d="M1308,126 H1392" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/></svg></div>
   <div class="cols sm">
     <div class="box"><h3>寫數字的順序</h3><ol>
@@ -403,65 +416,107 @@ svg text{font-family:inherit}
 </section>
 
 <section class="slide">
-  <div class="head"><span class="eyebrow">形色棋 1</span><h2>準備：每人 6 張，最多人的先出</h2></div>
-  <div class="cols">
-    <div class="box t"><h3>準備（2–4 人）</h3><ol>
+  <div class="head"><span class="eyebrow">形色棋 1</span><h2>準備：手上同類最多的人先出</h2></div>
+  <div class="cols dcols">
+    <div class="box t sm"><h3>準備（2–4 人）</h3><ol>
       <li>108 張圖案朝下洗好，當牌堆。</li>
       <li>每人拿 <b>6 張</b>，只有自己看。</li>
-      <li>大家找手上「<b>同形狀</b>或<b>同紋路</b>」最多有幾張，最多的人先出，把這幾張排成一條線。</li>
-      <li>出完從牌堆補回 6 張，換下一位（順時針）。</li></ol></div>
-    <div class="box"><h3>輪到你，二選一</h3>
-      <p class="big"><b>A. 出牌</b>：出 1 張或好幾張，接在桌上的卡旁邊，計分後補回 6 張。</p>
-      <p class="big"><b>B. 換牌</b>：手上不想要的放回牌堆、換新的，這回合不得分。</p>
-      <p class="train"><b>練到：</b>分類（形狀／紋路兩個規則）、空間規劃、計算分數</p></div>
+      <li>找手上「<b>同形狀</b>或<b>同紋路</b>」最多有幾張，最多的人先出，排成一條線。</li>
+      <li>出完從牌堆補回 6 張，換下一位（順時針）。</li></ol>
+      <h3 style="margin-top:8px">輪到你，二選一</h3>
+      <p><b>A. 出牌</b>：接在桌上的卡旁邊，計分後補回 6 張。</p>
+      <p><b>B. 換牌</b>：不想要的放回牌堆換新的，這回合不得分。</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 630" role="img" aria-label="形色棋開局：手上 3 張圓形最多，先排成一條線"><defs>
+<path id="q1S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="q1S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="q1S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="q1S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="q1S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="q1S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="q1C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="q1PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="q1PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="q1PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="q1AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="44" class="dl" text-anchor="start">手上 6 張：圓形有 3 張最多</text><use href="#q1C" transform="translate(95,140) scale(0.8)"/><use href="#q1S0" transform="translate(95,140) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><rect x="8.0" y="85.0" width="174.0" height="110.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><use href="#q1C" transform="translate(277,140) scale(0.8)"/><use href="#q1S1" transform="translate(277,140) scale(0.8)" fill="url(#q1PD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q1C" transform="translate(459,140) scale(0.8)"/><use href="#q1S0" transform="translate(459,140) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><rect x="372.0" y="85.0" width="174.0" height="110.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><use href="#q1C" transform="translate(641,140) scale(0.8)"/><use href="#q1S4" transform="translate(641,140) scale(0.8)" fill="url(#q1PG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q1C" transform="translate(823,140) scale(0.8)"/><use href="#q1S0" transform="translate(823,140) scale(0.8)" fill="url(#q1PD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><rect x="736.0" y="85.0" width="174.0" height="110.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><use href="#q1C" transform="translate(1005,140) scale(0.8)"/><use href="#q1S5" transform="translate(1005,140) scale(0.8)" fill="url(#q1PH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><path d="M550,220 L550,320" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#q1AR)"/><text x="20" y="380" class="dl" text-anchor="start">先出這 3 張，排成一條線</text><use href="#q1C" transform="translate(380,480) scale(0.8)"/><use href="#q1S0" transform="translate(380,480) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q1C" transform="translate(550,480) scale(0.8)"/><use href="#q1S0" transform="translate(550,480) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q1C" transform="translate(720,480) scale(0.8)"/><use href="#q1S0" transform="translate(720,480) scale(0.8)" fill="url(#q1PD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="550" y="600" class="dn" text-anchor="middle">同形狀、紋路都不同 ✓</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
   <div class="head"><span class="eyebrow">形色棋 2</span><h2>接線的規則</h2></div>
-  <div class="cols">
-    <div class="box t"><h3>一條線（橫的或直的）</h3><ol>
+  <div class="cols dcols">
+    <div class="box t sm"><h3>一條線（橫的或直的）</h3><ol>
       <li>整條線要嘛<b>形狀都一樣</b>（紋路都不同），要嘛<b>紋路都一樣</b>（形狀都不同）。</li>
       <li>同一條線裡<b>不能有一模一樣的卡</b>，所以一條線最多 6 張。</li>
-      <li>一回合出好幾張時，這些卡要放在<b>同一條線</b>上（可以不相連，但要在同一排）。</li>
-      <li>新卡一定要碰到桌上已經有的卡，也要符合它碰到的每一條線。</li></ol></div>
-    <div class="box"><h3>判斷看看</h3>
-      <p>⭕ 圓空心、圓塗滿、圓點點 → <b>可以</b>（同形狀、紋路都不同）</p>
-      <p>⭕ 星格子、愛心格子、菱形格子 → <b>可以</b>（同紋路、形狀都不同）</p>
-      <p>✕ 圓空心、圓空心 → <b>不行</b>（重複）</p>
-      <p>✕ 圓空心、星塗滿 → <b>不行</b>（形狀、紋路都不同）</p></div>
+      <li>一回合出好幾張時，要放在<b>同一條線</b>上。</li>
+      <li>新卡一定要碰到桌上的卡，也要符合它碰到的每一條線。</li></ol>
+      <p class="train"><b>練到：</b>分類（形狀／紋路兩個規則）、空間規劃</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 720" role="img" aria-label="形色棋接線：橫線都是圓形，直線都是塗滿"><defs>
+<path id="q2S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="q2S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="q2S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="q2S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="q2S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="q2S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="q2C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="q2PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="q2PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="q2PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="q2AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><use href="#q2C" transform="translate(110,178) scale(0.8)"/><use href="#q2S0" transform="translate(110,178) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(282,178) scale(0.8)"/><use href="#q2S0" transform="translate(282,178) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(454,178) scale(0.8)"/><use href="#q2S0" transform="translate(454,178) scale(0.8)" fill="url(#q2PH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(626,178) scale(0.8)"/><use href="#q2S0" transform="translate(626,178) scale(0.8)" fill="url(#q2PD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(282,70) scale(0.8)"/><use href="#q2S4" transform="translate(282,70) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(282,286) scale(0.8)"/><use href="#q2S1" transform="translate(282,286) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(282,394) scale(0.8)"/><use href="#q2S2" transform="translate(282,394) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="726" y="192" class="dl" text-anchor="start">← 橫：都是圓形</text><text x="382" y="408" class="dl" text-anchor="start">← 直：都是塗滿</text><text x="20" y="560" class="dh" text-anchor="start">不行的例子</text><use href="#q2C" transform="translate(110,650) scale(0.8)"/><use href="#q2S0" transform="translate(110,650) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q2C" transform="translate(282,650) scale(0.8)"/><use href="#q2S4" transform="translate(282,650) scale(0.8)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="400" y="640" class="dl" text-anchor="start">✕ 形狀、紋路都不同</text><text x="400" y="690" class="dn" text-anchor="start">（重複的卡也不行）</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
   <div class="head"><span class="eyebrow">形色棋 3</span><h2>怎麼算分、誰贏</h2></div>
-  <div class="cols">
-    <div class="box t"><h3>計分</h3><ol>
-      <li>你出的卡所在的每一條線，<b>這條線有幾張就得幾分</b>（連舊卡一起算）。</li>
-      <li>一張卡同時接到橫線和直線，兩條線都算。</li>
-      <li>把一條線湊滿 6 張，喊「<b>形色棋！</b>」，這條線 6 分再加 6 分＝<b>12 分</b>。</li></ol></div>
-    <div class="box"><h3>結束</h3><ol>
-      <li>牌堆抽完後，第一個把手牌出完的人<b>加 6 分</b>，遊戲結束。</li>
+  <div class="cols dcols">
+    <div class="box t sm"><h3>計分</h3><ol>
+      <li>新卡所在的每一條線，<b>有幾張就得幾分</b>（連舊卡一起算）。</li>
+      <li>同時接到橫線和直線，兩條都算。</li>
+      <li>一條線湊滿 6 張，喊「<b>形色棋！</b>」：6＋6＝<b>12 分</b>。</li></ol>
+      <h3 style="margin-top:8px">結束</h3><ol>
+      <li>牌堆抽完後，第一個出完手牌的人<b>加 6 分</b>，遊戲結束。</li>
       <li>分數最高的人獲勝。</li></ol>
-      <p class="note">長輩版：不計分，只比誰先湊出一條 6 張；或大家合作，看能湊出幾條「形色棋」。</p></div>
+      <p class="note">長輩版：不計分，比誰先湊出一條 6 張。</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 640" role="img" aria-label="形色棋計分：新卡同時接到橫線 4 張和直線 3 張，共 7 分"><defs>
+<path id="q3S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="q3S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="q3S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="q3S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="q3S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="q3S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="q3C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="q3PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="q3PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="q3PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="q3AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="30" class="dl" text-anchor="start">新放的「正方形雙圈」（橘框）</text><use href="#q3C" transform="translate(110,198) scale(0.8)"/><use href="#q3S1" transform="translate(110,198) scale(0.8)" fill="url(#q3PH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q3C" transform="translate(282,198) scale(0.8)"/><use href="#q3S1" transform="translate(282,198) scale(0.8)" fill="url(#q3PD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q3C" transform="translate(454,198) scale(0.8)"/><use href="#q3S1" transform="translate(454,198) scale(0.8)" fill="url(#q3PG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q3C" transform="translate(626,198) scale(0.8)"/><use href="#q3S1" transform="translate(626,198) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q3S1" transform="translate(626,198) scale(0.8) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#q3C" transform="translate(626,90) scale(0.8)"/><use href="#q3S5" transform="translate(626,90) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q3S5" transform="translate(626,90) scale(0.8) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#q3C" transform="translate(626,306) scale(0.8)"/><use href="#q3S4" transform="translate(626,306) scale(0.8)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#q3S4" transform="translate(626,306) scale(0.8) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><rect x="539.0" y="143.0" width="174.0" height="110.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="20" y="470" class="dl" text-anchor="start">橫線 4 張 → 4 分</text><text x="20" y="530" class="dl" text-anchor="start">直線 3 張 → 3 分</text><text x="20" y="610" class="dh" text-anchor="start">這一次共得 7 分</text><text x="720" y="470" class="dn" text-anchor="start">湊滿 6 張</text><text x="720" y="520" class="dn" text-anchor="start">＝6＋6＝12 分</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
-  <div class="head"><span class="eyebrow a">拉密玩法</span><h2>同一副卡，換成拉密：湊組出完手牌</h2></div>
-  <div class="cols">
-    <div class="box"><h3>怎麼玩（2–4 人）</h3><ol>
+  <div class="head"><span class="eyebrow a">拉密玩法</span><h2>同一副卡換成拉密：湊組、拆組重組</h2></div>
+  <div class="cols dcols">
+    <div class="box sm"><h3>怎麼玩（2–4 人）</h3><ol>
       <li>每人拿 <b>14 張</b>，其餘當牌堆。</li>
       <li>一「組」＝ 3–6 張：<b>同形狀、紋路都不同</b>，或<b>同紋路、形狀都不同</b>。</li>
-      <li>第一次下牌要用自己手上的牌，湊出至少一組 3 張。</li>
+      <li>第一次下牌，要用自己手上的牌湊出一組。</li>
       <li>之後可以把卡加到桌上的組，也可以<b>拆開桌上的組重新組合</b>。</li>
-      <li>不能出或不想出：從牌堆抽 1 張，換下一位。</li>
-      <li>最先把手牌出完的人獲勝。</li></ol></div>
-    <div class="box"><h3>拉密的精華：拆組重組</h3><ul>
-      <li>回合結束時，桌上每一組都要合規則，而且每組至少 3 張。</li>
-      <li>桌上的卡不能收回手上。</li>
-      <li>例：桌上有「圓空心、圓點點、圓格子、圓雙圈」，拿走圓雙圈，和手上的星雙圈、愛心雙圈湊一組。</li></ul>
-      <p class="train"><b>練到：</b>彈性思考（同一張卡換角度看）、計畫、工作記憶</p></div>
+      <li>回合結束時，桌上每組都要合規則、至少 3 張；桌上的卡不能收回手上。</li>
+      <li>不能出：從牌堆抽 1 張。最先出完手牌的人獲勝。</li></ol></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 720" role="img" aria-label="拉密拆組重組：拿走圓雙圈，和手上的星雙圈、愛心雙圈湊成一組"><defs>
+<path id="rkS0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="rkS1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="rkS2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="rkS3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="rkS4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="rkS5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="rkC" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="rkPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="rkPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="rkPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="rkAR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="40" class="dl" text-anchor="start">桌上的一組</text><use href="#rkC" transform="translate(100,115) scale(0.7)"/><use href="#rkS0" transform="translate(100,115) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkC" transform="translate(258,115) scale(0.7)"/><use href="#rkS0" transform="translate(258,115) scale(0.7)" fill="url(#rkPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkC" transform="translate(416,115) scale(0.7)"/><use href="#rkS0" transform="translate(416,115) scale(0.7)" fill="url(#rkPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkC" transform="translate(574,115) scale(0.7)"/><use href="#rkS0" transform="translate(574,115) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkS0" transform="translate(574,115) scale(0.7) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><rect x="497.0" y="66.0" width="154.0" height="98.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="20" y="225" class="dl" text-anchor="start">手上</text><use href="#rkC" transform="translate(100,295) scale(0.7)"/><use href="#rkS4" transform="translate(100,295) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkS4" transform="translate(100,295) scale(0.7) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#rkC" transform="translate(258,295) scale(0.7)"/><use href="#rkS5" transform="translate(258,295) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkS5" transform="translate(258,295) scale(0.7) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><text x="420" y="300" class="dn" text-anchor="start">拿走「圓雙圈」來配</text><path d="M550,345 L550,400" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#rkAR)"/><text x="20" y="445" class="dl" text-anchor="start">重組後：兩組都合規則</text><use href="#rkC" transform="translate(100,520) scale(0.7)"/><use href="#rkS0" transform="translate(100,520) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkC" transform="translate(258,520) scale(0.7)"/><use href="#rkS0" transform="translate(258,520) scale(0.7)" fill="url(#rkPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkC" transform="translate(416,520) scale(0.7)"/><use href="#rkS0" transform="translate(416,520) scale(0.7)" fill="url(#rkPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="560" y="532" class="dn" text-anchor="start">同形狀 3 張 ✓</text><use href="#rkC" transform="translate(100,655) scale(0.7)"/><use href="#rkS0" transform="translate(100,655) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkS0" transform="translate(100,655) scale(0.7) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#rkC" transform="translate(258,655) scale(0.7)"/><use href="#rkS4" transform="translate(258,655) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkS4" transform="translate(258,655) scale(0.7) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#rkC" transform="translate(416,655) scale(0.7)"/><use href="#rkS5" transform="translate(416,655) scale(0.7)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#rkS5" transform="translate(416,655) scale(0.7) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><text x="560" y="667" class="dn" text-anchor="start">同紋路 3 張 ✓</text></svg></div>
   </div>
 </section>
 
@@ -473,75 +528,125 @@ svg text{font-family:inherit}
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">數字撞鐘 1</span><h2>準備：22 張看不到數字的卡</h2></div>
-  <div class="cols">
-    <div class="box o"><h3>準備（2–4 人）</h3><ol>
+  <div class="cols dcols">
+    <div class="box o sm"><h3>準備（2–4 人）</h3><ol>
       <li>108 張<b>數字朝下</b>（看到的是圖案）洗勻，鋪在桌子中間。</li>
       <li>每人拿 <b>17 張</b>，數字朝下排成一橫排。</li>
-      <li>每人再從中間拿 <b>5 張</b>，一張一張翻開，插進自己那一排。</li>
+      <li>再從中間拿 <b>5 張</b>，一張一張翻開，插進自己那一排。</li>
       <li>插的時候要想好：<b>從左到右由小到大</b>。</li>
-      <li>完成後每人一排 22 張：17 張蓋著、5 張翻開。</li></ol></div>
-    <div class="box"><h3>目標</h3>
-      <p class="big">第一個讓自己 <b class="num">22</b> 張全部翻開、而且<b>由小到大</b>排好的人獲勝。</p>
-      <p class="note">插牌小技巧：很小的數字放左邊、很大的放右邊，中間留空間。</p>
-      <p class="note">原版 Completto 有 100 張牌；我們用 108 張自製卡玩，規則相同。</p></div>
+      <li>每人一排 22 張：17 張蓋著、5 張翻開。</li></ol>
+      <p class="note">小技巧：很小的放左邊、很大的放右邊，中間留空間。原版 Completto 有 100 張，我們用 108 張，規則相同。</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 560" role="img" aria-label="數字撞鐘準備：17 張蓋著排一排，再翻開 5 張依大小插進去"><defs>
+<path id="c1S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="c1S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="c1S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="c1S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="c1S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="c1S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="c1C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="c1PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="c1PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="c1PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="c1AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="44" class="dl" text-anchor="start">1. 拿 17 張，數字朝下排一排</text><g transform="translate(75,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(210,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(345,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(480,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(615,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(750,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(885,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(1020,120) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><text x="20" y="250" class="dl" text-anchor="start">2. 翻開 5 張，插進去：由小到大</text><g transform="translate(75,330) scale(0.6)"><use href="#c1C"/><text y="28" class="dnum">8</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="8.0" y="287.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><g transform="translate(210,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(345,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(480,330) scale(0.6)"><use href="#c1C"/><text y="28" class="dnum">31</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="413.0" y="287.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><g transform="translate(615,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(750,330) scale(0.6)"><use href="#c1C"/><text y="28" class="dnum">54</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="683.0" y="287.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><g transform="translate(885,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(1020,330) scale(0.6)"><use href="#c1C"/><text y="28" class="dnum">92</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="953.0" y="287.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="20" y="460" class="dl" text-anchor="start">共 22 張：17 張蓋著＋5 張翻開</text><text x="20" y="530" class="dh" text-anchor="start">目標：22 張全部翻開，由小到大</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
-  <div class="head"><span class="eyebrow o">數字撞鐘 2</span><h2>每一回合：抽一張、放一張</h2></div>
-  <div class="cols">
-    <div class="box o"><h3>輪到你，二選一</h3><ol>
-      <li><b>抽牌</b>：從中間拿一張（蓋著的，或別人放回來翻開的），翻開看數字。<br>放得進去 → 換掉自己排裡一張<b>蓋著</b>的卡，換下來的那張蓋著放回中間。</li>
-      <li><b>移位</b>：把自己一張蓋著的卡，移到排裡別的位置（不用翻開）。</li></ol></div>
-    <div class="box"><h3>規則</h3><ol>
-      <li>翻開的數字一定要放在合理的位置：比左邊大、比右邊小（差多少沒關係）。</li>
-      <li>放下去後和旁邊剛好連號（例如 32 旁邊放 33），<b>再玩一回合</b>；連成三張也只多一回合。</li>
-      <li>放不進去：這張翻開放回中間，大家都可以拿。</li></ol></div>
+  <div class="head"><span class="eyebrow o">數字撞鐘 2</span><h2>每一回合：抽一張、換一張</h2></div>
+  <div class="cols dcols">
+    <div class="box o sm"><h3>輪到你，二選一</h3><ol>
+      <li><b>抽牌</b>：從中間拿一張（蓋著的，或別人丟回來翻開的），翻開看。放得進去，就換掉自己排裡一張<b>蓋著</b>的，換下來的蓋著放回中間。</li>
+      <li><b>移位</b>：把自己一張蓋著的卡，移到排裡別的位置。</li></ol>
+      <h3 style="margin-top:8px">規則</h3><ol>
+      <li>比左邊大、比右邊小才能放（差多少沒關係）。</li>
+      <li>放下去剛好連號，<b>再玩一回合</b>。</li>
+      <li>放不進去：翻開放回中間，大家都可以拿。</li></ol></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 620" role="img" aria-label="數字撞鐘每回合：抽到 42，換掉 31 和 54 中間一張蓋著的牌"><defs>
+<path id="c2S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="c2S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="c2S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="c2S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="c2S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="c2S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="c2C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="c2PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="c2PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="c2PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="c2AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="44" class="dl" text-anchor="start">抽到 42，翻開看</text><g transform="translate(380,120) scale(0.6)"><use href="#c2C"/><text y="28" class="dnum">42</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="313.0" y="77.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><path d="M440,160 L528,268" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#c2AR)"/><text x="560" y="130" class="dn" text-anchor="start">42 比 31 大、比 54 小</text><g transform="translate(75,330) scale(0.6)"><use href="#c2C"/><text y="28" class="dnum">8</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(210,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(345,330) scale(0.6)"><use href="#c2C"/><text y="28" class="dnum">31</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(480,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><rect x="413.0" y="287.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6" stroke-dasharray="14 9"/><g transform="translate(615,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(750,330) scale(0.6)"><use href="#c2C"/><text y="28" class="dnum">54</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(885,330) scale(0.6)"><rect x="-100" y="-60" width="200" height="120" rx="10" fill="#E6DECD" stroke="#B9AF9C" stroke-width="2"/><text y="26" class="dq">?</text></g><g transform="translate(1020,330) scale(0.6)"><use href="#c2C"/><text y="28" class="dnum">92</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="20" y="460" class="dl" text-anchor="start">換掉 31 和 54 中間一張蓋著的牌</text><text x="20" y="520" class="dn" text-anchor="start">換下來的那張，蓋著放回桌子中間</text><text x="20" y="590" class="dh" text-anchor="start">剛好連號（例如 41、42）→ 再玩一回合</text></svg></div>
   </div>
-  <p class="train"><b>練到：</b>數字大小與排序、預留空間的計畫、記住別人丟回中間的數字</p>
 </section>
 
 <section class="slide alt">
   <div class="head"><span class="eyebrow o">數字撞鐘 3</span><h2>倒過來看也算：自己決定是哪個數字</h2></div>
-  <p class="big">把卡轉 180 度，還能讀成另一個數字的，就可以選要當哪一個。1–108 裡有這 14 張：</p>
+  <p>把卡轉 180 度，還能讀成另一個數字的，就可以選要當哪一個。1–108 裡有這 14 張：</p>
   <div class="flips"><span>6 ↔ 9</span><span>16 ↔ 91</span><span>18 ↔ 81</span><span>19 ↔ 61</span><span>66 ↔ 99</span><span>68 ↔ 89</span><span>86 ↔ 98</span></div>
-  <div class="cols" style="margin-top:6px">
-    <div class="box"><p>倒過來要是「看得懂的數字」才算：45 轉過來不是數字；10 轉過來是 01，也不算。</p></div>
-    <div class="box"><p>原版例子：拿到 89，轉過來當 68，剛好接在 67 旁邊，連號再玩一回合。</p></div>
-  </div>
-  <p class="note">玩牛頭王時就不轉：看數字下面的底線，底線在下面就是正確方向。</p>
+  <div class="box dbox" style="flex:1"><svg class="dia" viewBox="0 0 1100 230" role="img" aria-label="89 轉 180 度變成 68，接在 67 旁邊連號"><defs>
+<path id="c3S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="c3S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="c3S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="c3S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="c3S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="c3S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="c3C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="c3PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="c3PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="c3PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="c3AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><g transform="translate(110,110) scale(0.8)"><use href="#c3C"/><text y="28" class="dnum">89</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><path d="M215,110 L300,110" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#c3AR)"/><text x="258" y="70" class="dn" text-anchor="middle">轉 180°</text><g transform="translate(410,110) scale(0.8) rotate(180)"><use href="#c3C"/><text y="28" class="dnum">89</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="323.0" y="55.0" width="174.0" height="110.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="410" y="210" class="dl" text-anchor="middle">變成 68</text><g transform="translate(720,110) scale(0.8)"><use href="#c3C"/><text y="28" class="dnum">67</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(900,110) scale(0.8) rotate(180)"><use href="#c3C"/><text y="28" class="dnum">89</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="813.0" y="55.0" width="174.0" height="110.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="810" y="210" class="dh" text-anchor="middle">67、68 連號 → 再玩一回合</text></svg></div>
+  <p class="note">45 轉過來不是數字、10 轉過來是 01，都不算。玩牛頭王時不轉：底線在下面就是正確方向。</p>
 </section>
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">誰是牛頭王 1</span><h2>準備：收到最少牌的人贏</h2></div>
-  <div class="cols">
-    <div class="box o"><h3>準備（2–10 人）</h3><ol>
+  <div class="cols dcols">
+    <div class="box o sm"><h3>準備（2–10 人）</h3><ol>
       <li>108 張數字面朝下洗勻，每人發 <b>10 張</b>。</li>
       <li>再翻開 <b>4 張</b>，直的排在桌上，當 4 排的開頭。</li>
-      <li>每一排最多只能放 <b>5 張</b>。</li></ol></div>
-    <div class="box"><h3>每一輪</h3><ol>
-      <li>大家各選一張牌，<b>蓋著</b>放在面前。</li>
-      <li>一起翻開。</li>
-      <li>從<b>最小的數字</b>開始，一張一張放進排裡（規則下一頁）。</li>
-      <li>10 張出完，數一數自己收了幾張牌。</li></ol>
-      <p class="note">我們不算牛頭：收到的牌<b>最多的人輸</b>、最少的人贏。可以玩 2–3 局，把張數加起來。</p></div>
+      <li>每一排最多只能放 <b>5 張</b>。</li></ol>
+      <h3 style="margin-top:8px">每一輪</h3><ol>
+      <li>大家各選一張牌，<b>蓋著</b>放在面前，再一起翻開。</li>
+      <li>從<b>最小的數字</b>開始，一張一張放進排裡。</li>
+      <li>10 張出完，數自己收了幾張：<b>最多的人輸</b>。</li></ol></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 610" role="img" aria-label="誰是牛頭王：4 排開頭 12、37、58、90，大家翻開後從最小的開始放"><defs>
+<path id="n1S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="n1S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="n1S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="n1S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="n1S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="n1S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="n1C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="n1PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="n1PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="n1PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="n1AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><text x="20" y="40" class="dl" text-anchor="start">桌上 4 排的開頭</text><text x="20" y="129" class="dn" text-anchor="start">第1排</text><g transform="translate(230,115) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">12</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="20" y="254" class="dn" text-anchor="start">第2排</text><g transform="translate(230,240) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">37</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="20" y="379" class="dn" text-anchor="start">第3排</text><g transform="translate(230,365) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">58</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="20" y="504" class="dn" text-anchor="start">第4排</text><g transform="translate(230,490) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">90</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="420" y="40" class="dl" text-anchor="start">大家同時蓋一張，一起翻開</text><g transform="translate(520,135) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">41</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(690,135) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">8</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(860,135) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">95</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="420" y="290" class="dl" text-anchor="start">從最小的開始放</text><g transform="translate(520,390) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">8</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><path d="M590,390 L648,390" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#n1AR)"/><g transform="translate(720,390) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">41</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><path d="M790,390 L848,390" stroke="#E8552D" stroke-width="6" fill="none" marker-end="url(#n1AR)"/><g transform="translate(920,390) scale(0.6)"><use href="#n1C"/><text y="28" class="dnum">95</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><text x="420" y="520" class="dh" text-anchor="start">8 → 41 → 95</text></svg></div>
   </div>
 </section>
 
 <section class="slide">
   <div class="head"><span class="eyebrow o">誰是牛頭王 2</span><h2>放牌的 4 條規則</h2></div>
-  <div class="cols">
-    <div class="box o"><ol>
-      <li><b>只能變大</b>：牌要放在比它小的那一排最後面。</li>
+  <div class="cols dcols">
+    <div class="box o sm"><ol>
+      <li><b>只能變大</b>：放在比它小的那一排最後面。</li>
       <li><b>差最少</b>：好幾排都可以時，放在最後一張和它<b>差最少</b>的那一排。</li>
-      <li><b>第 6 張吃牌</b>：放下去是那排的第 6 張，就把前面 5 張全部收走，你的牌變成新的開頭。</li>
-      <li><b>太小了</b>：比 4 排最後一張都小，自己選一排全部收走，你的牌變成新的開頭。</li></ol></div>
-    <div class="box"><h3>例子</h3>
-      <p>4 排最後一張是 <b>12、37、58、90</b>。</p>
-      <p>你出 <b class="num">41</b> → 放 37 那排（差 4 最少）。</p>
-      <p>你出 <b class="num">95</b> → 放 90 那排；如果那排已經 5 張，你就吃掉 5 張。</p>
-      <p>你出 <b class="num">8</b> → 比 12 還小，自己選一排收走（挑張數最少的）。</p>
-      <p class="train"><b>練到：</b>比大小、算差距、猜別人會出什麼、數張數</p></div>
+      <li><b>第 6 張收牌</b>：放下去是那排第 6 張，就把前面 5 張收走，你的牌變成新開頭。</li>
+      <li><b>太小了</b>：比每一排最後一張都小，自己選一排收走，你的牌變成新開頭。</li></ol>
+      <p class="train"><b>練到：</b>比大小、算差距、猜別人會出什麼</p></div>
+    <div class="box dbox"><svg class="dia" viewBox="0 0 1100 690" role="img" aria-label="誰是牛頭王放牌：41 放在 37 後面；95 是第 6 張要收走 5 張"><defs>
+<path id="n2S0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="n2S1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="n2S2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="n2S3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="n2S4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="n2S5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="n2C" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="n2PH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="n2PD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="n2PG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+<marker id="n2AR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#E8552D"/></marker>
+</defs><g transform="translate(90,70) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">12</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(90,230) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">20</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(220,230) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">37</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(90,390) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">58</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(90,550) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">61</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(220,550) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">70</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(350,550) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">75</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(480,550) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">83</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(610,550) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">90</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(350,230) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">41</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="283.0" y="187.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6"/><text x="440" y="244" class="dn" text-anchor="start">41 放這排：和 37 差 4 最少</text><text x="180" y="84" class="dn" text-anchor="start">8 比每排都小 → 自己選一排收走</text><text x="180" y="404" class="dn" text-anchor="start">41 比 58、90 小，不能放這兩排</text><g transform="translate(740,550) scale(0.6)"><use href="#n2C"/><text y="28" class="dnum">95</text><path d="M-44,42 H44" stroke="#1F3A8A" stroke-width="6" stroke-linecap="round"/></g><rect x="673.0" y="507.0" width="134.0" height="86.0" rx="12" fill="none" stroke="#E8552D" stroke-width="6" stroke-dasharray="14 9"/><text x="20" y="660" class="dh" text-anchor="start">95 是第 6 張 → 收走前面 5 張，95 變成新開頭</text></svg></div>
   </div>
 </section>
 
