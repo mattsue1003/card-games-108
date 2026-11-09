@@ -179,23 +179,25 @@ svg text{font-family:inherit}
 <section class="slide">
   <div class="head"><span class="eyebrow o">破冰 2</span><h2>喊名字遊戲</h2></div>
   <div class="cols">
-    <div class="box o"><h3>怎麼玩</h3><ol>
-      <li>開始前，每人抽一個<b>台灣特色名字</b>，向大家介紹自己。</li>
-      <li>牌平均發完，牌蓋著疊在自己面前。</li>
-      <li>輪流把最上面一張翻開，丟在自己面前；第二輪起，新牌<b>蓋在自己原本的牌上面</b>。</li>
-      <li>只要任兩人最上面的牌<b>數字一樣</b>（含 J、Q、K），這兩人要搶著<b>喊對方的名字</b>。</li>
-      <li>喊慢或喊錯的人，把兩疊翻開的牌都收回去；最先把牌出完的人獲勝。</li>
+    <div class="box o sm"><h3>怎麼玩</h3><ol>
+      <li>開始前，每人<b>自己取一個台灣特色名字</b>，向大家介紹自己。</li>
+      <li>牌平均發完，牌蓋著疊在自己手上。</li>
+      <li>順時針輪流，把最上面一張翻開丟在自己面前；下一輪的牌<b>蓋在自己原本的牌上面</b>。</li>
+      <li>任兩人最上面的牌<b>數字一樣</b>（含 J、Q、K），這兩人搶著<b>喊對方的名字</b>。</li>
+      <li><b>先喊對的人</b>：把對方丟出來的牌全部收走，和自己丟出的牌一起收回手上，重新洗牌。</li>
+      <li><b>其他沒事的人</b>：把自己丟出來的牌收回去，一樣重新洗牌。</li>
+      <li>由<b>贏的人先出牌</b>，再順時針進行。時間到，手上牌最多的人獲勝。</li>
     </ol></div>
     <div class="box"><h3>名字格式：形容詞或地名＋名詞</h3>
       <p class="big">例如 <b class="num">苗栗草莓</b>、<b class="num">萬巒豬腳</b></p>
-      <ul><li>名字貼在胸前或寫在名牌上，方便偷看。</li><li>熟了以後換名字再玩一輪，記憶更難。</li></ul>
+      <ul><li>自己取：家鄉、愛吃的、去玩過的地方都可以。</li><li>名字寫在名牌上，方便偷看。</li><li>熟了以後換名字再玩一輪，記憶更難。</li></ul>
       <p class="train"><b>練到：</b>記憶新資訊（名字配人）、注意力切換、口語表達、認識彼此</p></div>
   </div>
 </section>
 
 <section class="slide alt">
-  <div class="head"><span class="eyebrow o">破冰 2・抽名字</span><h2>台灣特色名字，一人抽一個</h2></div>
-  <div class="namebox"><div class="namebig" id="nameOut">按右邊抽名字</div><button class="btn" id="nameBtn">抽一個名字</button></div>
+  <div class="head"><span class="eyebrow o">破冰 2・取名字</span><h2>自己取一個台灣特色名字</h2>
+  <p class="big">家鄉＋名產、地名＋小吃都可以。想不到的話，參考看看：</p></div>
   <div class="namelist" id="nameList"></div>
 </section>
 
@@ -609,10 +611,6 @@ document.getElementById('stage').addEventListener('click',e=>{if(e.target.closes
 const NAMES=['苗栗草莓','萬巒豬腳','大溪豆干','新竹米粉','宜蘭三星蔥','台南虱目魚','嘉義雞肉飯','彰化肉圓','淡水阿給','九份芋圓','屏東黑鮪魚','麻豆文旦','大甲芋頭','美濃粄條','關廟鳳梨','台東釋迦','花蓮麻糬','澎湖花枝丸','金門貢糖','三峽金牛角','阿里山烏龍','日月潭紅茶','埔里筊白筍','拉拉山水蜜桃','東港櫻花蝦','旗山香蕉','岡山羊肉','員林蜜餞','新竹貢丸','台中太陽餅','玉井芒果','西螺醬油','北港花生','卓蘭葡萄','池上便當','基隆鼎邊趖'];
 const list=document.getElementById('nameList');
 NAMES.forEach(n=>{const s=document.createElement('span');s.textContent=n;list.appendChild(s)});
-let pool=[];
-document.getElementById('nameBtn').onclick=e=>{e.stopPropagation();if(!pool.length)pool=[...NAMES].sort(()=>Math.random()-.5);
-  const n=pool.pop();document.getElementById('nameOut').textContent=n;
-  [...list.children].forEach(s=>{if(s.textContent===n)s.style.cssText='background:#FCE3D2;border-color:#E8552D;font-weight:700'});};
 const h=parseInt(location.hash.slice(1));go(isNaN(h)?0:h-1);
 </script>
 </body>
