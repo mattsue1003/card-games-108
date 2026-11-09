@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>一副牌玩到底｜撲克牌破冰＋108 張手繪卡牌遊戲</title>
+<meta name="description" content="撲克牌破冰 5 款，加上用空白名片和原子筆畫出 108 張卡牌，玩形色棋、拉密、數字撞鐘、誰是牛頭王。鍾孟修 職能治療師。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --paper:#FBF7EF; --paper2:#F2ECDF; --card:#FFFDF8; --line:#E2D9C6;
+  --ink:#12343B; --body:#3F5157; --mute:#6B7A7E;
+  --orange:#E8552D; --amber:#F4A93C; --teal:#028090; --pen:#1F3A8A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#2A2F31;color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;overflow:hidden}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--paper);padding:54px 72px 64px;display:none;flex-direction:column;gap:20px;overflow:hidden}
+.slide.on{display:flex;animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide.alt{background:var(--paper2)}
+.slide.dark{background:var(--ink);color:#F6F1E6}
+.slide.dark .body,.slide.dark p{color:#D6E2E0}
+h1{font-size:60px;font-weight:900;line-height:1.15;letter-spacing:.5px}
+h2{font-size:42px;font-weight:900;line-height:1.2}
+h3{font-size:27px;font-weight:700;line-height:1.3;margin-bottom:6px}
+p,li,td,th{font-size:24px;line-height:1.55;color:var(--body)}
+b{color:var(--ink)}
+.slide.dark b{color:#fff}
+.eyebrow{display:inline-block;align-self:flex-start;font-size:20px;font-weight:700;color:#fff;background:var(--teal);padding:3px 14px;border-radius:999px;letter-spacing:1px}
+.eyebrow.o{background:var(--orange)} .eyebrow.p{background:var(--pen)} .eyebrow.a{background:var(--amber);color:var(--ink)}
+.head{display:flex;flex-direction:column;gap:10px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;min-height:0}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.box{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.box.t{border-color:var(--teal)} .box.o{border-color:var(--orange)} .box.p{border-color:var(--pen)}
+ol,ul{padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
+li::marker{color:var(--orange);font-weight:700}
+.note{font-size:21px;color:var(--mute)}
+.tag{display:inline-block;font-size:20px;background:#E3F1EF;color:#035E66;border-radius:8px;padding:2px 10px;margin:2px 6px 2px 0}
+.train{margin-top:auto;font-size:21px;color:#035E66;background:#E3F1EF;border-radius:12px;padding:10px 16px}
+.train b{color:#035E66}
+.foot{position:absolute;left:72px;right:72px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--mute)}
+.slide.dark .foot{color:#9FB5B2}
+.big{font-size:30px;line-height:1.5}
+.sm li,.sm td,.sm th,.sm p{font-size:21px;line-height:1.45}
+.num{font-weight:900;color:var(--orange)}
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:2px solid var(--line);padding:8px 12px;text-align:left}
+th{color:var(--ink);font-weight:700;background:#F5EEDF}
+/* divider */
+.divider{justify-content:center;gap:18px}
+.divider .no{font-size:140px;font-weight:900;color:var(--amber);line-height:1}
+.divider h1{color:#fff}
+.divider p{font-size:28px}
+/* cover */
+.cover{justify-content:center;gap:26px;background:radial-gradient(circle at 85% 20%,#FCE3D2 0,transparent 40%),var(--paper)}
+.cover .sub{font-size:30px;color:var(--body);line-height:1.5}
+.cover .who{font-size:24px;color:var(--ink);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{font-size:22px;font-weight:700;padding:6px 16px;border-radius:999px;background:#fff;border:2px solid var(--line)}
+/* speaker */
+.speaker{display:grid;grid-template-columns:330px 1fr;gap:44px;align-items:center;flex:1}
+.speaker img{width:330px;height:330px;border-radius:50%;object-fit:cover;border:8px solid #fff;box-shadow:0 10px 30px rgba(18,52,59,.18)}
+.speaker ul{gap:6px}
+.speaker li{font-size:23px}
+.fb{display:inline-flex;gap:10px;align-items:center;margin-top:14px;font-size:21px;font-weight:700;color:#fff;background:#1F5FBF;border-radius:999px;padding:8px 20px;text-decoration:none}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;flex:1}
+.flow .box{gap:8px}
+.flow .step{font-size:20px;font-weight:900;color:var(--orange)}
+.flow li{font-size:21px}
+/* names */
+.namebox{display:flex;gap:24px;align-items:center}
+.namebig{flex:1;font-size:64px;font-weight:900;color:var(--orange);background:#fff;border:3px dashed var(--amber);border-radius:20px;padding:14px 20px;text-align:center;min-height:118px}
+.btn{font:inherit;font-size:24px;font-weight:700;color:#fff;background:var(--teal);border:0;border-radius:14px;padding:16px 26px;cursor:pointer}
+.btn:active{transform:scale(.97)}
+.namelist{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.namelist span{font-size:20px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 2px}
+/* svg cards */
+svg text{font-family:inherit}
+.grid36{width:100%;height:auto;flex:1;min-height:0}
+.grid36 .gh{font-size:34px;font-weight:900;fill:var(--ink);text-anchor:middle}
+.grid36 .gl{font-size:28px;font-weight:700;fill:var(--orange);text-anchor:middle}
+.row6{width:100%;height:auto}
+.bn{font-size:66px;font-weight:700;fill:var(--pen);text-anchor:middle}
+.caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:-6px}
+.caps div{text-align:center}
+.caps b{display:block;font-size:26px}
+.caps p{font-size:20px;line-height:1.45}
+/* flip list */
+.flips{display:flex;flex-wrap:wrap;gap:10px}
+.flips span{font-size:26px;font-weight:700;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 14px;color:var(--pen)}
+/* controls */
+#bar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px;align-items:center;background:rgba(18,52,59,.85);border-radius:999px;padding:6px 10px;opacity:.25;transition:opacity .2s;z-index:5}
+#bar:hover{opacity:1}
+#bar button{font:inherit;font-size:16px;color:#fff;background:transparent;border:0;padding:6px 12px;border-radius:999px;cursor:pointer}
+#bar button:hover{background:rgba(255,255,255,.15)}
+#count{color:#fff;font-size:15px;min-width:64px;text-align:center}
+#prog{position:fixed;left:0;top:0;height:4px;background:var(--orange);z-index:5;transition:width .25s}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="viewport"><div id="stage">
+
+<!-- 1 cover -->
+<section class="slide cover">
+  <span class="eyebrow o">卡牌遊戲帶領工作坊</span>
+  <h1>一副撲克牌＋108 張手繪卡<br>從破冰玩到動腦</h1>
+  <p class="sub">撲克牌破冰 5 款 → 自己畫 108 張名片卡 → 拉密形色棋 → 數字撞鐘、誰是牛頭王</p>
+  <div class="chips"><span>撲克牌</span><span>空白名片</span><span>原子筆</span></div>
+  <p class="who">愛迪樂｜鍾孟修 職能治療師</p>
+</section>
+
+<!-- 2 speaker -->
+<section class="slide">
+  <div class="head"><span class="eyebrow">講師介紹</span></div>
+  <div class="speaker">
+    <img src="img/speaker.jpg" alt="鍾孟修 職能治療師">
+    <div>
+      <h2>鍾孟修 <span style="font-size:28px;color:var(--mute)">職能治療師</span></h2>
+      <ul style="margin-top:14px">
+        <li>愛迪樂有限公司 執行長｜愛迪樂居家職能治療所 所長</li>
+        <li>社團法人台灣生活復能健康促進協會 副理事長</li>
+        <li>中華高齡專業照護訓練協會 理事</li>
+        <li>《讓你健康不失智》作者（商周出版，2025）</li>
+        <li>Homeseen 失智症桌遊 共同創辦人</li>
+        <li>社區大學講師；ICOPE 評估員、照顧者與長照專業人員培訓講師</li>
+      </ul>
+      <p style="margin-top:10px"><span class="tag">失智症</span><span class="tag">復能</span><span class="tag">健康促進</span><span class="tag">體智能</span><span class="tag">桌遊設計</span></p>
+      <a class="fb" href="https://www.facebook.com/profile.php?id=100063748491881" target="_blank" rel="noopener">臉書粉絲專頁：鍾孟修Matt-職能治療師 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3 flow -->
+<section class="slide alt">
+  <div class="head"><span class="eyebrow">今天的流程</span><h2>由簡單到複雜，一步一步加難度</h2></div>
+  <div class="flow">
+    <div class="box o"><span class="step">第一段</span><h3>撲克牌破冰</h3><ol><li>翻牌拍拍樂</li><li>喊名字遊戲</li><li>逆轉勝／去頭去尾</li><li>牌七</li><li>撿紅點</li></ol></div>
+    <div class="box p"><span class="step">第二段</span><h3>自己做卡牌</h3><ol><li>原子筆畫 6×6 圖案</li><li>每組畫 36 張</li><li>3 組合起來 108 張</li><li>背面寫 1–108</li></ol></div>
+    <div class="box t"><span class="step">第三段</span><h3>拉密形色棋</h3><ol><li>先玩形色棋：接成一條線</li><li>再玩拉密：湊組、拆組重組</li></ol></div>
+    <div class="box"><span class="step">第四段</span><h3>數字遊戲</h3><ol><li>數字撞鐘（Completto）</li><li>誰是牛頭王</li><li>加碼：數字炸彈</li></ol></div>
+  </div>
+  <p class="note">同一副 108 張卡：正面圖案玩第三段，翻到背面數字玩第四段。</p>
+</section>
+
+<!-- ===== Part 1 ===== -->
+<section class="slide dark divider">
+  <div class="no">01</div><h1>撲克牌破冰</h1>
+  <p>先動手、先笑出來：配對 → 叫名字 → 比大小 → 接龍 → 湊十</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 1</span><h2>翻牌拍拍樂</h2></div>
+  <div class="cols">
+    <div class="box o"><h3>怎麼玩</h3><ol>
+      <li>整副牌<b>蓋著</b>，散開鋪滿桌面。</li>
+      <li>大家輪流，每次翻開一張，翻開的牌就留在桌上。</li>
+      <li>桌上出現<b>兩張一樣的數字</b>（例如兩張 7、兩張 K），大家馬上伸手去拍。</li>
+      <li>先拍到的人拿走這一對。</li>
+      <li>牌都翻完，<b>拿到最多對</b>的人獲勝。</li>
+    </ol></div>
+    <div class="box"><h3>帶領小撇步</h3><ul>
+      <li>拍錯（不一樣的牌）：拿一對放回桌上，蓋起來重新混。</li>
+      <li>手不方便的長輩：改成「先喊出來」也算。</li>
+      <li>變難：只拍同花色同數字；或兩張加起來是 10 也要拍。</li>
+    </ul>
+    <p class="train"><b>練到：</b>視覺搜尋、反應速度、手眼協調、短期記憶</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 2</span><h2>喊名字遊戲</h2></div>
+  <div class="cols">
+    <div class="box o"><h3>怎麼玩</h3><ol>
+      <li>開始前，每人抽一個<b>台灣特色名字</b>，向大家介紹自己。</li>
+      <li>牌平均發完，牌蓋著疊在自己面前。</li>
+      <li>輪流把最上面一張翻開，丟在自己面前；第二輪起，新牌<b>蓋在自己原本的牌上面</b>。</li>
+      <li>只要任兩人最上面的牌<b>數字一樣</b>（含 J、Q、K），這兩人要搶著<b>喊對方的名字</b>。</li>
+      <li>喊慢或喊錯的人，把兩疊翻開的牌都收回去；最先把牌出完的人獲勝。</li>
+    </ol></div>
+    <div class="box"><h3>名字格式：形容詞或地名＋名詞</h3>
+      <p class="big">例如 <b class="num">苗栗草莓</b>、<b class="num">萬巒豬腳</b></p>
+      <ul><li>名字貼在胸前或寫在名牌上，方便偷看。</li><li>熟了以後換名字再玩一輪，記憶更難。</li></ul>
+      <p class="train"><b>練到：</b>記憶新資訊（名字配人）、注意力切換、口語表達、認識彼此</p></div>
+  </div>
+</section>
+
+<section class="slide alt">
+  <div class="head"><span class="eyebrow o">破冰 2・抽名字</span><h2>台灣特色名字，一人抽一個</h2></div>
+  <div class="namebox"><div class="namebig" id="nameOut">按右邊抽名字</div><button class="btn" id="nameBtn">抽一個名字</button></div>
+  <div class="namelist" id="nameList"></div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 3</span><h2>逆轉勝 與 去頭去尾</h2>
+  <p>四人一組，每人拿<b>自己花色的 A–K</b>（黑桃、愛心、方塊、梅花各一人），A＝1、J＝11、Q＝12、K＝13。每輪大家同時出一張牌。</p></div>
+  <div class="cols">
+    <div class="box o"><h3>(a) 逆轉勝</h3>
+      <p><b>最大</b>和<b>最小</b>的分數互換，中間兩人拿自己牌上的分數。</p>
+      <p class="note">例：出 13、9、5、2 → 出 13 的人得 2 分，出 2 的人得 13 分，另兩人得 9、5 分。</p>
+      <p>想贏：別出太大，也別太小？還是故意出最小？</p></div>
+    <div class="box p"><h3>(b) 去頭去尾</h3>
+      <p><b>最大</b>和<b>最小</b>都去掉、沒有分數，只有中間兩人得分。</p>
+      <p class="note">例：出 13、9、5、2 → 只有出 9 和 5 的人得分。</p>
+      <p>13 張都出完，累計分數最高的人獲勝。</p></div>
+  </div>
+  <p class="note">同點數時：一起算最大（或最小），一樣互換或去掉。 <b style="color:#035E66">練到：</b>比大小、加總、猜別人會出什麼、計畫留牌</p>
+</section>
+
+<section class="slide alt">
+  <div class="head"><span class="eyebrow o">工具</span><h2>撲克牌拉霸抽籤器：分組、決定誰先出</h2></div>
+  <div class="cols" style="grid-template-columns:1.25fr 1fr">
+    <a href="https://mattsue1003.github.io/pokerrandom/" target="_blank" rel="noopener" style="display:block;border-radius:18px;overflow:hidden;border:2px solid var(--line);background:#fff"><img src="img/pokerrandom.jpg" alt="撲克牌拉霸抽籤器畫面" style="width:100%;height:100%;object-fit:cover;object-position:top"></a>
+    <div class="box o"><h3>玩牌七、撿紅點前先抽</h3><ul>
+      <li>抽花色<b>分組</b>：抽到同花色的人坐同一桌。</li>
+      <li>抽牌決定<b>誰先出</b>、誰來發牌。</li>
+      <li>抽到哪張，就從那張開始接龍或配對，暖身一下。</li></ul>
+      <a class="btn" href="https://mattsue1003.github.io/pokerrandom/" target="_blank" rel="noopener" style="margin-top:auto;text-align:center;text-decoration:none">開啟抽籤器 →</a>
+      <p class="note" style="text-align:center">mattsue1003.github.io/pokerrandom</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 4</span><h2>牌七（排七）</h2></div>
+  <div class="cols">
+    <div class="box o"><h3>怎麼玩</h3><ol>
+      <li>4 人，每人 13 張。拿到<b>黑桃 7</b> 的人先出。</li>
+      <li>每種花色都從 <b>7</b> 開始：往下接 6、5…A，往上接 8、9…K。</li>
+      <li>其他花色的 7 隨時可以出，開一條新的龍。</li>
+      <li>輪到你：有牌能接就一定要出一張；<b>沒牌可接</b>，就蓋一張牌在自己面前。</li>
+      <li>大家手牌出完後，翻開自己<b>蓋起來的牌加總</b>，分數最少的人獲勝。</li>
+    </ol></div>
+    <div class="box"><h3>帶領小撇步</h3><ul>
+      <li>桌上排成 4 排（一排一個花色），7 放中間，長輩一眼看得出能接哪裡。</li>
+      <li>策略：手上 A、K 這種大小頭，可以先「卡」別人。</li>
+      <li>蓋牌要蓋點數小的，才不會扣太多分。</li>
+    </ul>
+    <p class="train"><b>練到：</b>排序（數字前後）、分類（花色）、計畫與策略、加總</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">破冰 5</span><h2>撿紅點：湊成 10 就收走</h2></div>
+  <div class="cols">
+    <div class="box o sm"><h3>怎麼玩（4 人）</h3><ol>
+      <li>每人發 <b>6 張</b>，桌面中間翻開 <b>4 張</b>，其餘蓋成牌堆。</li>
+      <li>輪到你：出一張手牌，和桌上一張<b>加起來 10</b> 就把兩張收走（A+9、2+8、3+7、4+6、5+5）。</li>
+      <li><b>10、J、Q、K</b> 要配<b>一樣的</b>：10 配 10、J 配 J…</li>
+      <li>配不到：這張牌留在桌上。</li>
+      <li>接著翻牌堆最上面一張，一樣能配就收走，不能配就留在桌上。</li>
+      <li>牌全部出完，算自己收到的紅色牌分數。</li>
+    </ol></div>
+    <div class="box sm"><h3>怎麼算分</h3>
+      <table><tr><th>牌</th><th>分數</th></tr>
+      <tr><td>紅心、方塊 A</td><td>20 分</td></tr>
+      <tr><td>紅心、方塊 2–8</td><td>看數字（2 就是 2 分）</td></tr>
+      <tr><td>紅心、方塊 9、10、J、Q、K</td><td>10 分</td></tr>
+      <tr><td>黑桃 A</td><td>30 分（各地不同，先約定）</td></tr>
+      <tr><td>其他黑色牌</td><td>0 分</td></tr></table>
+      <p class="note">全副總分 240 分，4 人平均 60 分，超過 60 就算贏。長輩版：直接比誰收到的紅點最多。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Part 2 ===== -->
+<section class="slide dark divider">
+  <div class="no">02</div><h1>自己做 108 張卡</h1>
+  <p>空白名片＋原子筆：正面畫圖案，背面寫數字</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow p">做卡</span><h2>一張名片有兩面，兩面各玩兩種遊戲</h2></div>
+  <div class="cols">
+    <div class="box p"><h3>正面：圖案（玩拉密形色棋）</h3>
+      <p class="big"><b class="num">6</b> 種形狀 × <b class="num">6</b> 種紋路 ＝ <b class="num">36</b> 張</p>
+      <p class="big">做 <b class="num">3</b> 組 → 36 × 3 ＝ <b class="num">108</b> 張</p>
+      <p class="note">只有原子筆、沒有顏色，所以原本形色棋的「6 種顏色」改成「6 種紋路」。</p></div>
+    <div class="box o"><h3>背面：數字 1–108（玩數字遊戲）</h3>
+      <ul><li>數字撞鐘（Completto）</li><li>誰是牛頭王</li><li>數字炸彈</li></ul>
+      <h3 style="margin-top:12px">準備</h3>
+      <ul><li>空白名片 108 張（多備 10 張畫壞用）</li><li>原子筆，全部用同一種顏色</li><li>投影這份簡報的 6×6 總表</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow p">做卡・形狀</span><h2>6 種形狀：原子筆這樣畫</h2></div>
+  <svg class="row6" viewBox="0 0 1500 160" role="img" aria-label="shapes"><defs>
+<path id="sS0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="sS1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="sS2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="sS3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="sS4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="sS5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="sC" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="sPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="sPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="sPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+</defs><use href="#sC" transform="translate(125,80) scale(1.15)"/><use href="#sS0" transform="translate(125,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(375,80) scale(1.15)"/><use href="#sS1" transform="translate(375,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(625,80) scale(1.15)"/><use href="#sS2" transform="translate(625,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(875,80) scale(1.15)"/><use href="#sS3" transform="translate(875,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(1125,80) scale(1.15)"/><use href="#sS4" transform="translate(1125,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#sC" transform="translate(1375,80) scale(1.15)"/><use href="#sS5" transform="translate(1375,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/></svg>
+  <div class="caps">
+    <div><b>圓形</b><p>一筆畫一圈，頭尾接起來</p></div>
+    <div><b>正方形</b><p>四條邊一樣長，四個角畫直角</p></div>
+    <div><b>三角形</b><p>頂點往左下、右下各一筆，再補底線</p></div>
+    <div><b>菱形</b><p>先點上下左右 4 點，再連起來</p></div>
+    <div><b>星星</b><p>一筆畫五角星，最後擦掉中間線也可</p></div>
+    <div><b>愛心</b><p>左右各畫半邊，在下方接成尖角</p></div>
+  </div>
+  <p class="note">形狀畫在名片正中央，高度大約名片的 2/3。先輕輕畫，確定了再描粗。</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow p">做卡・紋路</span><h2>6 種紋路：取代顏色</h2></div>
+  <svg class="row6" viewBox="0 0 1500 160" role="img" aria-label="patterns"><defs>
+<path id="pS0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="pS1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="pS2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="pS3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="pS4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="pS5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="pC" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="pPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="pPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="pPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+</defs><use href="#pC" transform="translate(125,80) scale(1.15)"/><use href="#pS1" transform="translate(125,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(375,80) scale(1.15)"/><use href="#pS1" transform="translate(375,80) scale(1.15)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(625,80) scale(1.15)"/><use href="#pS1" transform="translate(625,80) scale(1.15)" fill="url(#pPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(875,80) scale(1.15)"/><use href="#pS1" transform="translate(875,80) scale(1.15)" fill="url(#pPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(1125,80) scale(1.15)"/><use href="#pS1" transform="translate(1125,80) scale(1.15)" fill="url(#pPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pC" transform="translate(1375,80) scale(1.15)"/><use href="#pS1" transform="translate(1375,80) scale(1.15)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#pS1" transform="translate(1375,80) scale(1.15) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/></svg>
+  <div class="caps">
+    <div><b>1. 空心</b><p>只畫外框，裡面留白</p></div>
+    <div><b>2. 塗滿</b><p>來回塗到看不到白</p></div>
+    <div><b>3. 橫線</b><p>裡面畫 4–5 條橫線</p></div>
+    <div><b>4. 點點</b><p>裡面點 8–10 個點</p></div>
+    <div><b>5. 格子</b><p>橫線 3 條＋直線 3 條</p></div>
+    <div><b>6. 雙圈</b><p>裡面再畫一個小的同形狀</p></div>
+  </div>
+  <p class="note">紋路一定要明顯不同：橫線不要斜、點點不要連成線，遠遠看也分得出來。</p>
+</section>
+
+<section class="slide" style="padding:30px 56px 40px;gap:8px">
+  <div class="head" style="flex-direction:row;align-items:center;gap:16px"><span class="eyebrow p">6×6 總表</span><h2 style="font-size:34px">照著畫：一組 36 張，每格一張</h2></div>
+  <svg class="grid36" viewBox="0 0 1530 856" role="img" aria-label="6 種形狀乘 6 種原子筆紋路，共 36 張卡牌圖案總表"><defs>
+<path id="gS0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="gS1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="gS2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="gS3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="gS4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="gS5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="gC" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="gPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="gPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="gPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+</defs><text x="265.0" y="44" class="gh">圓形</text><text x="495.0" y="44" class="gh">正方形</text><text x="725.0" y="44" class="gh">三角形</text><text x="955.0" y="44" class="gh">菱形</text><text x="1185.0" y="44" class="gh">星星</text><text x="1415.0" y="44" class="gh">愛心</text><text x="70" y="142.0" class="gl">1. 空心</text><use href="#gC" transform="translate(265.0,130.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,130.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,130.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,130.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,130.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,130.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,130.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="274.0" class="gl">2. 塗滿</text><use href="#gC" transform="translate(265.0,262.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,262.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,262.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,262.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,262.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,262.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,262.0) scale(1.0)" fill="#1F3A8A" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="406.0" class="gl">3. 橫線</text><use href="#gC" transform="translate(265.0,394.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,394.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,394.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,394.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,394.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,394.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,394.0) scale(1.0)" fill="url(#gPH)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="538.0" class="gl">4. 點點</text><use href="#gC" transform="translate(265.0,526.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,526.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,526.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,526.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,526.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,526.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,526.0) scale(1.0)" fill="url(#gPD)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="670.0" class="gl">5. 格子</text><use href="#gC" transform="translate(265.0,658.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,658.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,658.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,658.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,658.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,658.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,658.0) scale(1.0)" fill="url(#gPG)" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><text x="70" y="802.0" class="gl">6. 雙圈</text><use href="#gC" transform="translate(265.0,790.0) scale(1.0)"/><use href="#gS0" transform="translate(265.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS0" transform="translate(265.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(495.0,790.0) scale(1.0)"/><use href="#gS1" transform="translate(495.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS1" transform="translate(495.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(725.0,790.0) scale(1.0)"/><use href="#gS2" transform="translate(725.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS2" transform="translate(725.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(955.0,790.0) scale(1.0)"/><use href="#gS3" transform="translate(955.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS3" transform="translate(955.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(1185.0,790.0) scale(1.0)"/><use href="#gS4" transform="translate(1185.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS4" transform="translate(1185.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/><use href="#gC" transform="translate(1415.0,790.0) scale(1.0)"/><use href="#gS5" transform="translate(1415.0,790.0) scale(1.0)" fill="none" stroke="#1F3A8A" stroke-width="5" stroke-linejoin="round"/><use href="#gS5" transform="translate(1415.0,790.0) scale(1.0) scale(0.45)" fill="none" stroke="#1F3A8A" stroke-width="11" stroke-linejoin="round"/></svg>
+</section>
+
+<section class="slide alt">
+  <div class="head"><span class="eyebrow p">做卡・分工</span><h2>3 組各畫一整套 36 張</h2></div>
+  <div class="cols3">
+    <div class="box"><h3>怎麼分</h3><ul><li>一組 6 人：每人負責一種<b>紋路</b>，畫 6 種形狀。</li><li>人少：每人畫兩排。</li><li>畫完對照總表，數一數 36 張都在。</li></ul></div>
+    <div class="box"><h3>畫得一樣</h3><ul><li>形狀大小差不多，放正中間。</li><li>名片橫放，形狀不歪。</li><li>只畫一面，背面留白寫數字。</li></ul></div>
+    <div class="box"><h3>檢查</h3><ul><li>同形狀同紋路：全場剛好 3 張。</li><li>拿遠一點看，分得出紋路嗎？</li><li>塗滿的卡，背面有沒有透出來？</li></ul></div>
+  </div>
+  <p class="train"><b>練到：</b>精細動作與握筆控制、視覺描摹、照表操作（照著範本做）、團隊分工</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow p">做卡・背面</span><h2>背面寫數字 1–108，畫上牛頭</h2></div>
+  <div style="width:72%;align-self:center"><svg class="row6" viewBox="0 0 1500 180" role="img" aria-label="背面數字範例"><defs>
+<path id="bS0" d="M-42,0 A42,42 0 1,0 42,0 A42,42 0 1,0 -42,0 Z"/>
+<path id="bS1" d="M-38,-38 H38 V38 H-38 Z"/>
+<path id="bS2" d="M0,-42 L44,38 L-44,38 Z"/>
+<path id="bS3" d="M0,-46 L40,0 L0,46 L-40,0 Z"/>
+<path id="bS4" d="M0,-42 L11,-11 L44,-10 L18,10 L27,41 L0,23 L-27,41 L-18,10 L-44,-10 L-11,-11 Z"/>
+<path id="bS5" d="M0,40 C-30,18 -48,0 -44,-18 C-40,-36 -14,-42 0,-20 C14,-42 40,-36 44,-18 C48,0 30,18 0,40 Z"/>
+<rect id="bC" x="-100" y="-60" width="200" height="120" rx="10" fill="#FFFDF8" stroke="#B9AF9C" stroke-width="2"/>
+<pattern id="bPH" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0,5 H10" stroke="#1F3A8A" stroke-width="3"/></pattern>
+<pattern id="bPD" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="6.5" cy="6.5" r="2.8" fill="#1F3A8A"/></pattern>
+<pattern id="bPG" width="13" height="13" patternUnits="userSpaceOnUse"><path d="M0,6.5 H13 M6.5,0 V13" stroke="#1F3A8A" stroke-width="2.4"/></pattern>
+</defs><use href="#bC" transform="translate(150,90) scale(1.2)"/><text x="150" y="118" class="bn">7</text><path d="M108,132 H192" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><g transform="translate(150,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><use href="#bC" transform="translate(450,90) scale(1.2)"/><text x="450" y="118" class="bn">25</text><path d="M408,132 H492" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><g transform="translate(436,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(464,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><use href="#bC" transform="translate(750,90) scale(1.2)"/><text x="750" y="118" class="bn">40</text><path d="M708,132 H792" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><g transform="translate(722,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(750,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(778,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><use href="#bC" transform="translate(1050,90) scale(1.2)"/><text x="1050" y="118" class="bn">66</text><path d="M1008,132 H1092" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><g transform="translate(994,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1022,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1050,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1078,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1106,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><use href="#bC" transform="translate(1350,90) scale(1.2)"/><text x="1350" y="118" class="bn">55</text><path d="M1308,132 H1392" stroke="#1F3A8A" stroke-width="5" stroke-linecap="round"/><g transform="translate(1266,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1294,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1322,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1350,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1378,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1406,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g><g transform="translate(1434,42)" fill="none" stroke="#1F3A8A" stroke-width="3" stroke-linecap="round"><path d="M-9,-4 Q0,14 9,-4"/><path d="M-9,-4 L-15,-12 M9,-4 L15,-12"/></g></svg></div>
+  <div class="cols sm">
+    <div class="box"><h3>寫數字的順序</h3><ol>
+      <li>108 張畫好後，<b>先洗牌</b>，再翻到背面依序寫 1、2、3…108（圖案和數字才不會有關聯）。</li>
+      <li>每個數字<b>下面畫一條底線</b>：分得出 6 和 9、66 和 99。</li>
+      <li>數字上方畫小牛頭（U 加兩支角），玩牛頭王用。</li></ol></div>
+    <div class="box"><h3>牛頭數量</h3>
+      <table><tr><th>數字</th><th>牛頭</th></tr>
+      <tr><td>55</td><td>7 個</td></tr>
+      <tr><td>11、22、33…99（兩個數字一樣）</td><td>5 個</td></tr>
+      <tr><td>10、20、30…100（10 的倍數）</td><td>3 個</td></tr>
+      <tr><td>5、15、25…105（尾數是 5）</td><td>2 個</td></tr>
+      <tr><td>其他</td><td>1 個</td></tr></table></div>
+  </div>
+</section>
+
+<!-- ===== Part 3 ===== -->
+<section class="slide dark divider">
+  <div class="no">03</div><h1>拉密形色棋</h1>
+  <p>同一副圖案卡：先玩形色棋（接成一條線），再玩拉密（湊組、拆組重組）</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow">形色棋 1</span><h2>準備：每人 6 張，最多人的先出</h2></div>
+  <div class="cols">
+    <div class="box t"><h3>準備（2–4 人）</h3><ol>
+      <li>108 張圖案朝下洗好，當牌堆。</li>
+      <li>每人拿 <b>6 張</b>，只有自己看。</li>
+      <li>大家找手上「<b>同形狀</b>或<b>同紋路</b>」最多有幾張，最多的人先出，把這幾張排成一條線。</li>
+      <li>出完從牌堆補回 6 張，換下一位（順時針）。</li></ol></div>
+    <div class="box"><h3>輪到你，二選一</h3>
+      <p class="big"><b>A. 出牌</b>：出 1 張或好幾張，接在桌上的卡旁邊，計分後補回 6 張。</p>
+      <p class="big"><b>B. 換牌</b>：手上不想要的放回牌堆、換新的，這回合不得分。</p>
+      <p class="train"><b>練到：</b>分類（形狀／紋路兩個規則）、空間規劃、計算分數</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow">形色棋 2</span><h2>接線的規則</h2></div>
+  <div class="cols">
+    <div class="box t"><h3>一條線（橫的或直的）</h3><ol>
+      <li>整條線要嘛<b>形狀都一樣</b>（紋路都不同），要嘛<b>紋路都一樣</b>（形狀都不同）。</li>
+      <li>同一條線裡<b>不能有一模一樣的卡</b>，所以一條線最多 6 張。</li>
+      <li>一回合出好幾張時，這些卡要放在<b>同一條線</b>上（可以不相連，但要在同一排）。</li>
+      <li>新卡一定要碰到桌上已經有的卡，也要符合它碰到的每一條線。</li></ol></div>
+    <div class="box"><h3>判斷看看</h3>
+      <p>⭕ 圓空心、圓塗滿、圓點點 → <b>可以</b>（同形狀、紋路都不同）</p>
+      <p>⭕ 星格子、愛心格子、菱形格子 → <b>可以</b>（同紋路、形狀都不同）</p>
+      <p>✕ 圓空心、圓空心 → <b>不行</b>（重複）</p>
+      <p>✕ 圓空心、星塗滿 → <b>不行</b>（形狀、紋路都不同）</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow">形色棋 3</span><h2>怎麼算分、誰贏</h2></div>
+  <div class="cols">
+    <div class="box t"><h3>計分</h3><ol>
+      <li>你出的卡所在的每一條線，<b>這條線有幾張就得幾分</b>（連舊卡一起算）。</li>
+      <li>一張卡同時接到橫線和直線，兩條線都算。</li>
+      <li>把一條線湊滿 6 張，喊「<b>形色棋！</b>」，這條線 6 分再加 6 分＝<b>12 分</b>。</li></ol></div>
+    <div class="box"><h3>結束</h3><ol>
+      <li>牌堆抽完後，第一個把手牌出完的人<b>加 6 分</b>，遊戲結束。</li>
+      <li>分數最高的人獲勝。</li></ol>
+      <p class="note">長輩版：不計分，只比誰先湊出一條 6 張；或大家合作，看能湊出幾條「形色棋」。</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow a">拉密玩法</span><h2>同一副卡，換成拉密：湊組出完手牌</h2></div>
+  <div class="cols">
+    <div class="box"><h3>怎麼玩（2–4 人）</h3><ol>
+      <li>每人拿 <b>14 張</b>，其餘當牌堆。</li>
+      <li>一「組」＝ 3–6 張：<b>同形狀、紋路都不同</b>，或<b>同紋路、形狀都不同</b>。</li>
+      <li>第一次下牌要用自己手上的牌，湊出至少一組 3 張。</li>
+      <li>之後可以把卡加到桌上的組，也可以<b>拆開桌上的組重新組合</b>。</li>
+      <li>不能出或不想出：從牌堆抽 1 張，換下一位。</li>
+      <li>最先把手牌出完的人獲勝。</li></ol></div>
+    <div class="box"><h3>拉密的精華：拆組重組</h3><ul>
+      <li>回合結束時，桌上每一組都要合規則，而且每組至少 3 張。</li>
+      <li>桌上的卡不能收回手上。</li>
+      <li>例：桌上有「圓空心、圓點點、圓格子、圓雙圈」，拿走圓雙圈，和手上的星雙圈、愛心雙圈湊一組。</li></ul>
+      <p class="train"><b>練到：</b>彈性思考（同一張卡換角度看）、計畫、工作記憶</p></div>
+  </div>
+</section>
+
+<!-- ===== Part 4 ===== -->
+<section class="slide dark divider">
+  <div class="no">04</div><h1>翻到背面：數字遊戲</h1>
+  <p>數字撞鐘（Completto）→ 誰是牛頭王 → 加碼數字炸彈</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">數字撞鐘 1</span><h2>準備：22 張看不到數字的卡</h2></div>
+  <div class="cols">
+    <div class="box o"><h3>準備（2–4 人）</h3><ol>
+      <li>108 張<b>數字朝下</b>（看到的是圖案）洗勻，鋪在桌子中間。</li>
+      <li>每人拿 <b>17 張</b>，數字朝下排成一橫排。</li>
+      <li>每人再從中間拿 <b>5 張</b>，一張一張翻開，插進自己那一排。</li>
+      <li>插的時候要想好：<b>從左到右由小到大</b>。</li>
+      <li>完成後每人一排 22 張：17 張蓋著、5 張翻開。</li></ol></div>
+    <div class="box"><h3>目標</h3>
+      <p class="big">第一個讓自己 <b class="num">22</b> 張全部翻開、而且<b>由小到大</b>排好的人獲勝。</p>
+      <p class="note">插牌小技巧：很小的數字放左邊、很大的放右邊，中間留空間。</p>
+      <p class="note">原版 Completto 有 100 張牌；我們用 108 張自製卡玩，規則相同。</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">數字撞鐘 2</span><h2>每一回合：抽一張、放一張</h2></div>
+  <div class="cols">
+    <div class="box o"><h3>輪到你，二選一</h3><ol>
+      <li><b>抽牌</b>：從中間拿一張（蓋著的，或別人放回來翻開的），翻開看數字。<br>放得進去 → 換掉自己排裡一張<b>蓋著</b>的卡，換下來的那張蓋著放回中間。</li>
+      <li><b>移位</b>：把自己一張蓋著的卡，移到排裡別的位置（不用翻開）。</li></ol></div>
+    <div class="box"><h3>規則</h3><ol>
+      <li>翻開的數字一定要放在合理的位置：比左邊大、比右邊小（差多少沒關係）。</li>
+      <li>放下去後和旁邊剛好連號（例如 32 旁邊放 33），<b>再玩一回合</b>；連成三張也只多一回合。</li>
+      <li>放不進去：這張翻開放回中間，大家都可以拿。</li></ol></div>
+  </div>
+  <p class="train"><b>練到：</b>數字大小與排序、預留空間的計畫、記住別人丟回中間的數字</p>
+</section>
+
+<section class="slide alt">
+  <div class="head"><span class="eyebrow o">數字撞鐘 3</span><h2>倒過來看也算：自己決定是哪個數字</h2></div>
+  <p class="big">把卡轉 180 度，還能讀成另一個數字的，就可以選要當哪一個。1–108 裡有這 14 張：</p>
+  <div class="flips"><span>6 ↔ 9</span><span>16 ↔ 91</span><span>18 ↔ 81</span><span>19 ↔ 61</span><span>66 ↔ 99</span><span>68 ↔ 89</span><span>86 ↔ 98</span></div>
+  <div class="cols" style="margin-top:6px">
+    <div class="box"><p>倒過來要是「看得懂的數字」才算：45 轉過來不是數字；10 轉過來是 01，也不算。</p></div>
+    <div class="box"><p>原版例子：拿到 89，轉過來當 68，剛好接在 67 旁邊，連號再玩一回合。</p></div>
+  </div>
+  <p class="note">玩牛頭王時就不轉：看數字下面的底線，底線在下面就是正確方向。</p>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">誰是牛頭王 1</span><h2>準備：吃到最少牛頭的人贏</h2></div>
+  <div class="cols">
+    <div class="box o"><h3>準備（2–10 人）</h3><ol>
+      <li>108 張數字面朝下洗勻，每人發 <b>10 張</b>。</li>
+      <li>再翻開 <b>4 張</b>，直的排在桌上，當 4 排的開頭。</li>
+      <li>每一排最多只能放 <b>5 張</b>。</li></ol></div>
+    <div class="box"><h3>每一輪</h3><ol>
+      <li>大家各選一張牌，<b>蓋著</b>放在面前。</li>
+      <li>一起翻開。</li>
+      <li>從<b>最小的數字</b>開始，一張一張放進排裡（規則下一頁）。</li>
+      <li>10 張出完，算自己吃到幾個牛頭。</li></ol>
+      <p class="note">原版玩到有人累積 66 個牛頭為止；課堂上玩 1–2 局，牛頭最少的人贏。</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow o">誰是牛頭王 2</span><h2>放牌的 4 條規則</h2></div>
+  <div class="cols">
+    <div class="box o"><ol>
+      <li><b>只能變大</b>：牌要放在比它小的那一排最後面。</li>
+      <li><b>差最少</b>：好幾排都可以時，放在最後一張和它<b>差最少</b>的那一排。</li>
+      <li><b>第 6 張吃牌</b>：放下去是那排的第 6 張，就把前面 5 張全部收走（吃牛頭），你的牌變成新的開頭。</li>
+      <li><b>太小了</b>：比 4 排最後一張都小，自己選一排全部收走，你的牌變成新的開頭。</li></ol></div>
+    <div class="box"><h3>例子</h3>
+      <p>4 排最後一張是 <b>12、37、58、90</b>。</p>
+      <p>你出 <b class="num">41</b> → 放 37 那排（差 4 最少）。</p>
+      <p>你出 <b class="num">95</b> → 放 90 那排；如果那排已經 5 張，你就吃掉 5 張。</p>
+      <p>你出 <b class="num">8</b> → 比 12 還小，選牛頭最少的一排收走。</p>
+      <p class="train"><b>練到：</b>比大小、算差距、猜別人會出什麼、加總牛頭</p></div>
+  </div>
+</section>
+
+<section class="slide alt">
+  <div class="head"><span class="eyebrow a">加碼</span><h2>數字炸彈：用 108 張卡猜密碼</h2></div>
+  <div class="cols">
+    <div class="box"><h3>怎麼玩</h3><ol>
+      <li>帶領者從 108 張抽一張，偷看後蓋著放好，這就是<b>炸彈</b>。</li>
+      <li>範圍從 <b>1–108</b> 開始，大家輪流喊一個數字。</li>
+      <li>帶領者縮小範圍：例如喊 50，炸彈比 50 小 → 範圍變 1–49。</li>
+      <li>喊中炸彈的人「爆炸」，表演一個動作或回答一題。</li></ol></div>
+    <div class="box"><h3>變化</h3><ul>
+      <li>每人手上拿 5 張卡，只能喊手上有的數字。</li>
+      <li>把範圍寫在白板，讓記不住的人也跟得上。</li>
+      <li>爆炸的人抽一個題目：最喜歡的台灣小吃？</li></ul>
+      <p class="train"><b>練到：</b>數字範圍、邏輯推理、輪流等待、口語表達</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="head"><span class="eyebrow">帶領提醒</span><h2>同一副牌，依能力調整難度</h2></div>
+  <div class="cols3">
+    <div class="box"><h3>變簡單</h3><ul><li>牌數減半（只用 1–54 或 18 張圖案）</li><li>不計分、大家合作完成</li><li>規則一次只加一條</li></ul></div>
+    <div class="box"><h3>變難</h3><ul><li>限時出牌</li><li>加規則：加起來 10 也算</li><li>邊玩邊記分、心算</li></ul></div>
+    <div class="box"><h3>注意</h3><ul><li>看不清楚：卡片放大、用粗筆描</li><li>手不方便：用指的、用喊的</li><li>輸贏淡化，多問「你剛剛怎麼想的？」</li></ul></div>
+  </div>
+  <p class="big" style="margin-top:8px">玩牌的重點不是贏，是<b>大家一起動腦、一起笑</b>。</p>
+</section>
+
+<section class="slide dark cover" style="background:var(--ink)">
+  <h1 style="color:#fff">謝謝大家，一起玩起來！</h1>
+  <p class="sub" style="color:#D6E2E0">撲克牌 5 款破冰＋108 張手繪卡：形色棋、拉密、數字撞鐘、誰是牛頭王、數字炸彈</p>
+  <p class="who" style="color:#F4A93C">愛迪樂｜鍾孟修 職能治療師</p>
+</section>
+
+</div></div>
+
+<div id="bar">
+  <button id="prev" aria-label="上一頁">◀</button>
+  <span id="count"></span>
+  <button id="next" aria-label="下一頁">▶</button>
+  <button id="fs">全螢幕</button>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+slides.forEach((s,i)=>{if(!s.classList.contains('divider')&&!s.classList.contains('cover')){const f=document.createElement('div');f.className='foot';f.innerHTML='<span>一副牌玩到底｜鍾孟修 職能治療師</span><span>'+(i+1)+' / '+slides.length+'</span>';s.appendChild(f);}});
+function go(n){cur=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('on',i===cur));
+  document.getElementById('count').textContent=(cur+1)+' / '+slides.length;
+  document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%';
+  history.replaceState(null,'','#'+(cur+1));}
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='scale('+k+')';}
+addEventListener('resize',fit);fit();
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(cur+1)}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(cur-1)}
+  else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);else if(e.key==='f')toggleFs();});
+document.getElementById('prev').onclick=()=>go(cur-1);
+document.getElementById('next').onclick=()=>go(cur+1);
+function toggleFs(){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();}
+document.getElementById('fs').onclick=toggleFs;
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1));tx=null;});
+document.getElementById('stage').addEventListener('click',e=>{if(e.target.closest('a,button'))return;const r=innerWidth/2;go(cur+(e.clientX>r?1:-1));});
+// 台灣特色名字
+const NAMES=['苗栗草莓','萬巒豬腳','大溪豆干','新竹米粉','宜蘭三星蔥','台南虱目魚','嘉義雞肉飯','彰化肉圓','淡水阿給','九份芋圓','屏東黑鮪魚','麻豆文旦','大甲芋頭','美濃粄條','關廟鳳梨','台東釋迦','花蓮麻糬','澎湖花枝丸','金門貢糖','三峽金牛角','阿里山烏龍','日月潭紅茶','埔里筊白筍','拉拉山水蜜桃','東港櫻花蝦','旗山香蕉','岡山羊肉','員林蜜餞','新竹貢丸','台中太陽餅','玉井芒果','西螺醬油','北港花生','卓蘭葡萄','池上便當','基隆鼎邊趖'];
+const list=document.getElementById('nameList');
+NAMES.forEach(n=>{const s=document.createElement('span');s.textContent=n;list.appendChild(s)});
+let pool=[];
+document.getElementById('nameBtn').onclick=e=>{e.stopPropagation();if(!pool.length)pool=[...NAMES].sort(()=>Math.random()-.5);
+  const n=pool.pop();document.getElementById('nameOut').textContent=n;
+  [...list.children].forEach(s=>{if(s.textContent===n)s.style.cssText='background:#FCE3D2;border-color:#E8552D;font-weight:700'});};
+const h=parseInt(location.hash.slice(1));go(isNaN(h)?0:h-1);
+</script>
+</body>
+</html>
